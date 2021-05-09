@@ -1,3 +1,41 @@
 body {
     font-family: 'PT Sans', sans-serif;
 }
+
+
+/* BORDER */
+.border-small {
+    border-radius: 8px;
+}
+
+.border-large {
+    border-radius: 16px;
+}
+
+.border-circel {
+    border-radius: 100%;
+}
+
+
+/* COLOR */
+.bg-sec {
+    background-color: rgb(7, 7, 124);
+}
+
+.bg-main {
+    background-color: rgb(176, 175, 238);
+}
+
+.color-navbar {
+    color: rgb(213, 213, 226);
+}
+
+.color-titel {
+    color: rgb(6, 6, 209);
+}
+
+
+/* FONT */
+.bold {
+    font-weight: bold;
+}
