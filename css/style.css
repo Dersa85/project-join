@@ -38,3 +38,47 @@ body {
 .bold {
     font-weight: bold;
 }
+
+
+/* NAVIGATION_BAR */
+#nav-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 140px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-logo {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.nav-pp {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+.nav-element {
+    cursor: pointer;
+    border-left: transparent 5px solid;
+    width: 140px;
+    padding-left: 30px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.nav-element:hover {
+    color: rgba(255, 255, 255, 1);
+    border-left: white 5px solid;
+}
