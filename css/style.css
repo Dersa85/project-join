@@ -2,12 +2,6 @@ body {
     font-family: 'PT Sans', sans-serif;
 }
 
-/* DISPLAY */
-
-.d-flex {
-    display: flex;
-}
-
 /* BORDER */
 .border-small {
     border-radius: 8px;
