@@ -15,12 +15,26 @@
     <script src="./script/board.js"></script>
     <title>Join</title>
 </head>
-<body>
-    <div class="d-flex">
+<body onload="init()">
+    <div class="d-flex vh-100">
         <div id="nav-bar"></div>
    
-        <div>
-            
+        <div class="vh-100">
+            <h2 class="m-4 bold">BOARD</h2>
+            <div class="d-flex" style="height: -webkit-fill-available;">
+                <div class="d-flex flex-column h-75 ms-4">
+                    <h2>CATEGORY</h2>
+                    <div class="bg-main" style="height: -webkit-fill-available;"></div>
+                </div>
+                <div class="d-flex flex-column h-75 ms-4">
+                    <h2>CATEGORY</h2>
+                    <div class="bg-main" style="height: -webkit-fill-available;"></div>
+                </div>
+                <div class="d-flex flex-column h-75 ms-4">
+                    <h2>CATEGORY</h2>
+                    <div class="bg-main" style="height: -webkit-fill-available;"></div>
+                </div>
+            </div>
         </div>
     </div>
     
