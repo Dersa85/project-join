@@ -20,6 +20,12 @@ function init(page) {
 
 function generateNavbar(page) {
     addBackgroundColor();
+    addToInnerHtml();
+    deleteTheBorder();
+    addTheBorder(page);
+}
+
+function addToInnerHtml(){
     document.getElementById('nav-bar').innerHTML = `
     <a href="#"><img class="nav-logo" src="./img/joinlogo.png"></a>
     <a id="board" href="#" class="nav-element nav-element-lined">Board</a>
@@ -28,8 +34,6 @@ function generateNavbar(page) {
     <a id="help" href="#" class="nav-element nav-element-lined">Help</a>
     <img class="nav-profile-picture" src="./img/pp.jpg">
     `;
-    deleteTheBorder();
-    addTheBorder(page);
 }
 
 function addTheBorder(page) {
@@ -46,3 +50,4 @@ function deleteTheBorder() {
 function addBackgroundColor() {
     document.getElementById('nav-bar').classList.add('bg-sec');
 }
+
