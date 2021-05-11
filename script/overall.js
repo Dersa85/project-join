@@ -27,11 +27,11 @@ function generateNavbar(page) {
 
 function addToInnerHtml(){
     document.getElementById('nav-bar').innerHTML = `
-    <a href="#"><img class="nav-logo" src="./img/joinlogo.png"></a>
-    <a id="board" href="#" class="nav-element nav-element-lined">Board</a>
-    <a id="backlog" href="#" class="nav-element nav-element-lined">Backlog</a>
-    <a id="add-task" href="#" class="nav-element nav-element-lined">Add Task</a>
-    <a id="help" href="#" class="nav-element nav-element-lined">Help</a>
+    <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
+    <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
+    <a id="backlog" href="backlog.html" class="nav-element nav-element-lined">Backlog</a>
+    <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
+    <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
     <img class="nav-profile-picture" src="./img/pp.jpg">
     `;
 }
