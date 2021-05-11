@@ -24,6 +24,6 @@ function generateNavbar() {
     <a href="#" class="nav-element">Backlog</a>
     <a href="#" class="nav-element">Add Task</a>
     <a href="#" class="nav-element">Help</a>
-    <img class="nav-pp" src="./img/pp.jpg">
+    <img class="nav-profile-picture" src="./img/pp.jpg">
     `;
 }

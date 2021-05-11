@@ -43,9 +43,6 @@ body {
 
 /* NAVIGATION_BAR */
 #nav-bar {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 140px;
     height: 100vh;
     display: flex;
@@ -54,11 +51,10 @@ body {
 }
 
 .nav-logo {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 
-.nav-pp {
+.nav-profile-picture {
     position: absolute;
     bottom: 30px;
     left: 30px;
@@ -70,7 +66,6 @@ body {
 }
 
 .nav-element {
-    cursor: pointer;
     border-left: transparent 5px solid;
     width: 140px;
     padding-left: 30px;
