@@ -45,6 +45,7 @@ body {
 #nav-bar {
     width: 140px;
     height: 100vh;
+    margin-right: 40px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -58,8 +59,8 @@ body {
     position: absolute;
     bottom: 30px;
     left: 30px;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 100%;
     border: 2px solid white;
@@ -75,6 +76,11 @@ body {
 }
 
 .nav-element:hover {
+    color: rgba(255, 255, 255, 1);
+    border-left: white 5px solid;
+}
+
+.nav-element-lined{
     color: rgba(255, 255, 255, 1);
     border-left: white 5px solid;
 }

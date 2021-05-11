@@ -12,18 +12,37 @@ function addTask(task) {
     tasksDb.push(task);
 }
 
-function init() {
-    generateNavbar();
+function init(page) {
+    generateNavbar(page);
 }
 
-function generateNavbar() {
-    document.getElementById('nav-bar').classList.add('bg-sec'); // add the background color
+//////////////////////  Navbar   //////////////////////////
+
+function generateNavbar(page) {
+    addBackgroundColor();
     document.getElementById('nav-bar').innerHTML = `
     <a href="#"><img class="nav-logo" src="./img/joinlogo.png"></a>
-    <a href="#" class="nav-element">Board</a>
-    <a href="#" class="nav-element">Backlog</a>
-    <a href="#" class="nav-element">Add Task</a>
-    <a href="#" class="nav-element">Help</a>
+    <a id="board" href="#" class="nav-element nav-element-lined">Board</a>
+    <a id="backlog" href="#" class="nav-element nav-element-lined">Backlog</a>
+    <a id="add-task" href="#" class="nav-element nav-element-lined">Add Task</a>
+    <a id="help" href="#" class="nav-element nav-element-lined">Help</a>
     <img class="nav-profile-picture" src="./img/pp.jpg">
     `;
+    deleteTheBorder();
+    addTheBorder(page);
+}
+
+function addTheBorder(page) {
+    document.getElementById(page).classList.add('nav-element-lined');
+}
+
+function deleteTheBorder() {
+    let pages = ['board', 'backlog', 'add-task', 'help'];
+    for (let i = 0; i < pages.length; i++) {
+        document.getElementById(pages[i]).classList.remove('nav-element-lined');
+    }
+}
+
+function addBackgroundColor() {
+    document.getElementById('nav-bar').classList.add('bg-sec');
 }
