@@ -1,0 +1,13 @@
+.mode-buttons {
+    border-width: 0;
+    border-bottom: 5px solid transparent;
+    background-color: transparent;
+}
+
+.mode-buttons:hover {
+    color: white;
+}
+
+.selected {
+    border-bottom: 5px solid white;
+}
