@@ -1,19 +1,15 @@
-let tasksDb = [];
 
-
-
-
-
-function getAllTasks() {
-    return tasksDb;
-}
-
-function addTask(task) {
-    tasksDb.push(task);
-}
 
 function init(page) {
+    startBackend();
     generateNavbar(page);
+}
+
+//////////////////////  Backend   //////////////////////////
+
+async function startBackend() {
+    setURL('http://gruppe-76.developerakademie.com/smallest_backend_ever');
+    await downloadFromServer();
 }
 
 //////////////////////  Navbar   //////////////////////////
