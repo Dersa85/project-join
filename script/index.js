@@ -28,7 +28,8 @@ function login() {
     console.log('login with ', inputName.value);
 
     // redirection with:
-    // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html")
+    // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
+    // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
 }
 
 function newAccount() {
@@ -37,5 +38,6 @@ function newAccount() {
     console.log('new account with ' + inputName.value);
 
     // redirection with:
-    // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html")
+    // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
+    // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
 }
