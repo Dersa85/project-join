@@ -45,7 +45,7 @@ body {
 #nav-bar {
     width: 140px;
     height: 100vh;
-    margin-right: 40px;
+    margin-right: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;

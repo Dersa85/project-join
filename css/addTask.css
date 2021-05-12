@@ -1,10 +1,14 @@
-h1 {
-    margin: 40px;
-    margin-bottom: 55px;
+.headline-of-page {
+    margin: 60px 0 50px 0;
+}
+
+h5 {
+    color: darkblue !important;
+    margin-bottom: 24px !important;
+    text-transform: UPPERCASE !important;
 }
 
 .main {
-    margin: 0px 175px 0 40px;
     background-color: #F2F2F2 !important;
     padding-bottom: 32px;
     display: flex;
@@ -18,17 +22,12 @@ h1 {
     margin: 32px 0;
 }
 
-#description {
-    height: 275px;
-    width: 525px;
-    padding: 8px;
-    font-size: 16px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.form-select {
+    width: 350px !important;
 }
 
-input, select{
-    height: 30px;
-    width: 350px;
-    padding-left: 5px;
-    font-size: 16px;
+#descrition {
+    resize: none;
+    height: 280px;
+    width: 500px;
 }
