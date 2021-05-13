@@ -44,7 +44,7 @@ body {
 /* NAVIGATION_BAR */
 #nav-bar {
     width: 140px;
-    min-height: 100vh;
+    height: 100vh;
     margin-right: 60px;
     display: flex;
     align-items: center;
@@ -77,7 +77,6 @@ body {
 
 .nav-element:hover {
     color: rgba(255, 255, 255, 1);
-    /* border-left: white 5px solid; */
 }
 
 .nav-element-lined{
