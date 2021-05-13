@@ -71,16 +71,16 @@ body {
     width: 140px;
     padding-left: 30px;
     margin-top: 20px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
 }
 
 .nav-element:hover {
     color: rgba(255, 255, 255, 1);
-    border-left: white 5px solid;
+    /* border-left: white 5px solid; */
 }
 
 .nav-element-lined{
-    color: rgba(255, 255, 255, 1);
+    color: white;
     border-left: white 5px solid;
 }
