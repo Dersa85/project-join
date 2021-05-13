@@ -12,6 +12,10 @@ async function startBackend() {
     await downloadFromServer();
 }
 
+async function addTaskToDatabase(task) {
+    console.log(task);
+}
+
 //////////////////////  Navbar   //////////////////////////
 
 function generateNavbar(page) {
