@@ -44,7 +44,7 @@ body {
 /* NAVIGATION_BAR */
 #nav-bar {
     width: 140px;
-    height: 100vh;
+    min-height: 100vh;
     margin-right: 60px;
     display: flex;
     align-items: center;
