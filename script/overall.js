@@ -16,6 +16,14 @@ async function startBackend() {
     await downloadFromServer();
 }
 
+async function getBackendArray(key) {
+    return await JSON.parse(backend.getItem(key)) || []; 
+}
+
+async function setBackendArray(key, array) {
+    return await backend.setItem(key, JSON.stringify(array));
+}
+
 async function addTaskToDatabase(task) {
     console.log('Erstelle den Task: ', task);
     let savedTasks = await backend.getItem('backlog') || [];
