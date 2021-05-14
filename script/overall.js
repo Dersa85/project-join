@@ -1,4 +1,4 @@
-
+let alltasks = getBackendArray('alltasks');
 
 function init(page = '') {
     startBackend();
@@ -17,7 +17,7 @@ async function startBackend() {
 }
 
 async function getBackendArray(key) {
-    return await JSON.parse(backend.getItem(key)) || []; 
+    return await JSON.parse(backend.getItem(key)) || [];
 }
 
 async function setBackendArray(key, array) {
@@ -30,13 +30,6 @@ function addObjectToDatabase(key, json) {
     setBackendArray(key, json);
 }
 
-async function addTaskToDatabase(task) {
-    console.log('Erstelle den Task: ', task);
-    let savedTasks = await backend.getItem('backlog') || [];
-    savedTasks.push(task);
-    backend.setItem('backlog', savedTasks);
-}
-
 //////////////////////  Navbar   //////////////////////////
 
 function generateNavbar(page) {
@@ -46,7 +39,7 @@ function generateNavbar(page) {
     addTheBorder(page);
 }
 
-function addToInnerHtml(){
+function addToInnerHtml() {
     document.getElementById('nav-bar').innerHTML = `
     <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
     <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
