@@ -24,6 +24,13 @@ async function setBackendArray(key, array) {
     return await backend.setItem(key, JSON.stringify(array));
 }
 
+async function addTaskToDatabase(task) {
+    console.log('Erstelle den Task: ', task);
+    let savedTasks = await backend.getItem('backlog') || [];
+    savedTasks.push(task);
+    backend.setItem('backlog', savedTasks)
+}
+
 //////////////////////  Navbar   //////////////////////////
 
 function generateNavbar(page) {
