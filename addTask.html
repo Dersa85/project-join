@@ -28,38 +28,49 @@
 
         <div>
             <h2 class="headline-of-page">Add Task</h2>
+
             <div class="main bg-main border-small">
                 <div class="block">
+                    <!-- title -->
                     <div class="block-element">
                         <h5>Title</h5>
-                        <input type="text" class="form-control w-75">
+                        <input id="title" type="text" class="form-control w-75">
                     </div>
+                    <!-- category -->
                     <div class="block-element">
                         <h5>Category</h5>
-                        <select class="form-select">
+                        <select id="category" class="form-select">
                             <option>Marketing</option>
                             <option>Development</option>
+                            <option>Engineering</option>
                             <option>Design</option>
+                            <option>Product</option>
+                            <option>Sale</option>
+                            <option>Other</option>
                         </select>
                     </div>
+                    <!-- descrition -->
                     <div class="block-element">
                         <h5>Description</h5>
-                        <textarea class="form-control" id="descrition"></textarea>
+                        <textarea id="descrition" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="block">
+                    <!-- due date -->
                     <div class="block-element">
                         <h5>Due Date</h5>
-                        <input type="date" class="form-control">
+                        <input id="dueDate" type="date" class="form-control">
                     </div>
+                    <!-- urgency -->
                     <div class="block-element">
                         <h5>Urgency</h5>
-                        <select class="form-select">
+                        <select id="urgency" class="form-select">
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </select>
                     </div>
+                    <!-- assignd to -->
                     <div class="block-element">
                         <h5>Assigned To</h5>
                         <div></div>
