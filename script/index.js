@@ -37,7 +37,30 @@ function newAccount() {
     let inputPassword = document.getElementById('input-password');
     console.log('new account with ' + inputName.value);
 
+    if (getMember(inputName)) { // check if exist
+        console.log('User exist, rename please');
+        return;
+    }
+    let member = {
+        'name' : inputName.value,
+        'passwort' : inputPassword,
+        'picturePath' : ''  // TODO default Path
+    }
+    addObjectToDatabase('members', member);
+
+
     // redirection with:
     // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
     // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
 }
+
+async function getMember(memberName) {
+    let members = await backend.getItem('members') || [];
+    members.forEach(member => {
+        if (member['name'] == memberName) {
+            return member;
+        }
+    });
+    return;
+}
+

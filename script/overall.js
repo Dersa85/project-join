@@ -21,14 +21,20 @@ async function getBackendArray(key) {
 }
 
 async function setBackendArray(key, array) {
-    return await backend.setItem(key, JSON.stringify(array));
+    await backend.setItem(key, JSON.stringify(array));
+}
+
+function addObjectToDatabase(key, json) {
+    let array = getBackendArray(key);
+    array.push(json);
+    setBackendArray(key, json);
 }
 
 async function addTaskToDatabase(task) {
     console.log('Erstelle den Task: ', task);
     let savedTasks = await backend.getItem('backlog') || [];
     savedTasks.push(task);
-    backend.setItem('backlog', savedTasks)
+    backend.setItem('backlog', savedTasks);
 }
 
 //////////////////////  Navbar   //////////////////////////
