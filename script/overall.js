@@ -3,6 +3,10 @@
 function init(page = '') {
     startBackend();
     generateNavbar(page);
+
+    if (page == 'backlog') {
+        refreshBacklog();
+    }
 }
 
 //////////////////////  Backend   //////////////////////////
