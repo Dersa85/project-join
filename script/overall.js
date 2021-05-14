@@ -1,6 +1,6 @@
 
 
-function init(page) {
+function init(page = '') {
     startBackend();
     generateNavbar(page);
 }
@@ -13,7 +13,10 @@ async function startBackend() {
 }
 
 async function addTaskToDatabase(task) {
-    console.log(task);
+    console.log('Erstelle den Task: ', task);
+    let savedTasks = await backend.getItem('backlog') || [];
+    savedTasks.push(task);
+    backend.setItem('backlog', savedTasks)
 }
 
 //////////////////////  Navbar   //////////////////////////
@@ -37,7 +40,9 @@ function addToInnerHtml(){
 }
 
 function addTheBorder(page) {
-    document.getElementById(page).classList.add('nav-element-lined');
+    if (page) {
+        document.getElementById(page).classList.add('nav-element-lined');
+    }
 }
 
 function deleteTheBorder() {
