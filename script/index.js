@@ -32,20 +32,22 @@ function login() {
     // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
 }
 
-function newAccount() {
+async function newAccount() {
     let inputName = document.getElementById('input-name');
     let inputPassword = document.getElementById('input-password');
-    console.log('new account with ' + inputName.value);
 
-    if (getMember(inputName)) { // check if exist
+    let user = await getMember(inputName.value);
+
+    if (user) { // check if exist
         console.log('User exist, rename please');
         return;
     }
+    console.log('new account with name ' + inputName.value);
     let member = {
         'name' : inputName.value,
-        'passwort' : inputPassword,
-        'picturePath' : ''  // TODO default Path
-    }
+        'passwort' : inputPassword.value,
+        'picturePath' : ''  
+    } // TODO default Path
     addObjectToDatabase('members', member);
 
 
@@ -56,11 +58,11 @@ function newAccount() {
 
 async function getMember(memberName) {
     let members = await backend.getItem('members') || [];
-    members.forEach(member => {
-        if (member['name'] == memberName) {
-            return member;
+    for (let i = 0; i < members.length; i++) {
+        if (members[i]['name'] == memberName) {
+            return members[i]['name'];
         }
-    });
+    }
     return;
 }
 

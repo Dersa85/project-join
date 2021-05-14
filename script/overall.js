@@ -17,17 +17,24 @@ async function startBackend() {
 }
 
 async function getBackendArray(key) {
-    return await JSON.parse(backend.getItem(key)) || [];
+    return await backend.getItem(key) || [];
 }
 
 async function setBackendArray(key, array) {
-    await backend.setItem(key, JSON.stringify(array));
+    await backend.setItem(key, array);
 }
 
-function addObjectToDatabase(key, json) {
-    let array = getBackendArray(key);
+async function addObjectToDatabase(key, json) {
+    let array = await getBackendArray(key);
     array.push(json);
-    setBackendArray(key, json);
+    await setBackendArray(key, array);
+}
+
+async function addTaskToDatabase(task) {
+    console.log('Erstelle den Task: ', task);
+    let savedTasks = await backend.getItem('backlog') || [];
+    savedTasks.push(task);
+    backend.setItem('backlog', savedTasks);
 }
 
 //////////////////////  Navbar   //////////////////////////
