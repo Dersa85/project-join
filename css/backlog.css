@@ -46,14 +46,15 @@
 .margin-r-16 {
     margin-right: 16px;
 }
+
 .no-margin {
     margin: 0;
 }
 
 /* TEXT AND FONT */
 
-
 /* BIG CLASSES */
+
 .backlog-task {
     display: flex;
     align-items: center;
@@ -63,4 +64,13 @@
 
 .backlog-task * {
     align-items: center;
+}
+
+/* confirm task */
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

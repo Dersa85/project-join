@@ -21,3 +21,13 @@ function refreshBacklog() {
         `
     });
 }
+
+/////////////// confirm task /////////////////
+
+function showConfirmTask() {
+    document.getElementById('confirmTask').classList.remove('d-none');
+}
+
+function deleteConfirmTask() {
+    document.getElementById('confirmTask').classList.add('d-none');
+}
