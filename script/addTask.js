@@ -1,4 +1,4 @@
-function addTask() {
+function createTask() {
 
     let title = document.getElementById('title').value;
     let category = document.getElementById('category').value;
