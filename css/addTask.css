@@ -69,3 +69,64 @@ h5 {
 .image-box {
     margin: 0 10px;
 }
+
+@media (max-height: 830px) {
+    #descrition {
+        height: 260px !important;
+        width: 475px !important;
+    }
+    .block-element {
+        margin: 30px 0 !important;
+    }
+    .headline-of-page {
+        margin: 40px 0 50px 0;
+    }
+}
+
+@media (max-height: 790px) {
+    #descrition {
+        height: 250px !important;
+    }
+    .block-element {
+        margin: 24px 0 !important;
+    }
+    .main {
+        padding-bottom: 16px;
+    }
+}
+
+@media (max-height: 750px) {
+    .headline-of-page {
+        font-size: 1.90rem;
+    }
+    h5 {
+        font-size: 1.15rem !important;
+    }
+    #descrition {
+        height: 240px !important;
+    }
+    .block {
+        margin: 0 30px;
+    }
+    .block-element {
+        margin: 22px 0 !important;
+    }
+    .btn{
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-height: 730px) {
+    .headline-of-page {
+        font-size: 1.70rem;
+    }
+    h5 {
+        font-size: 1rem !important;
+    }
+    .form-select, .form-control, #descrition {
+        font-size: 0.85rem !important;
+    }
+    .block-element {
+        margin: 20px 0 !important;
+    }
+}
