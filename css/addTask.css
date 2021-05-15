@@ -27,19 +27,28 @@ h5 {
     width: 350px !important;
 }
 
-#descrition {
+#title {
+    letter-spacing: 1px;
+}
+
+#description {
     resize: none;
     height: 280px;
     width: 500px;
 }
 
 .profile-picture {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     object-fit: cover;
     border-radius: 100%;
     cursor: pointer;
-    margin: 10px 4px;
+    margin: 10px 0px;
+    border: 2px solid transparent;
+}
+
+.profile-picture-under-border {
+    border-bottom: 2px solid;
 }
 
 .btn {
@@ -47,8 +56,16 @@ h5 {
     margin: 0 12px;
 }
 
+.btn-cancel {
+    color: #0d6efd !important;
+}
+
 .position-of-container {
     position: absolute;
     right: 40px;
     bottom: 80px;
+}
+
+.image-box {
+    margin: 0 10px;
 }

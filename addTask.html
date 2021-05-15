@@ -45,6 +45,7 @@
                             <option>Engineering</option>
                             <option>Design</option>
                             <option>Product</option>
+                            <option>Testing</option>
                             <option>Sale</option>
                             <option>Other</option>
                         </select>
@@ -52,7 +53,7 @@
                     <!-- descrition -->
                     <div class="block-element">
                         <h5>Description</h5>
-                        <textarea id="descrition" class="form-control"></textarea>
+                        <textarea id="description" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="block">
@@ -73,17 +74,13 @@
                     <!-- assignd to -->
                     <div class="block-element">
                         <h5>Assigned To</h5>
-                        <div>
-                            <img class="profile-picture" src="./img/pp.jpg">
-                            <img class="profile-picture" src="./img/pp.jpg">
-                            <img class="profile-picture" src="./img/pp.jpg">
-                        </div>
+                        <div class="d-flex" id="image-container"></div>
                     </div>
                 </div>
                 <!--buttons-->
                 <div class="position-of-container">
                     <button type="button" class="btn btn-cancel">Cancel</button>
-                    <button type="button" class="btn btn-primary">Create Task</button>
+                    <button onclick="createTask()" type="button" class="btn btn-primary">Create Task</button>
                 </div>
             </div>
         </div>

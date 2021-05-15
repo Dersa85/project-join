@@ -46,7 +46,9 @@ async function newAccount() {
     let member = {
         'name' : inputName.value,
         'passwort' : inputPassword.value,
-        'picturePath' : ''  
+        'picturePath' : '',
+        'alreadyAssigned': false, // addTask.js -> assignTo(i)
+        'indexOfArray': '' //  provides access: for toggle
     } // TODO default Path
     addObjectToDatabase('members', member);
 

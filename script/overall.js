@@ -1,4 +1,4 @@
-let alltasks = getBackendArray('alltasks');
+
 
 function init(page = '') {
     startBackend();
@@ -6,6 +6,10 @@ function init(page = '') {
 
     if (page == 'backlog') {
         refreshBacklog();
+    }
+
+    if (page == 'add-task') {
+        showProfilePicInBlockElement();
     }
 }
 
@@ -28,13 +32,6 @@ async function addObjectToDatabase(key, json) {
     let array = await getBackendArray(key);
     array.push(json);
     await setBackendArray(key, array);
-}
-
-async function addTaskToDatabase(task) {
-    console.log('Erstelle den Task: ', task);
-    let savedTasks = await backend.getItem('backlog') || [];
-    savedTasks.push(task);
-    backend.setItem('backlog', savedTasks);
 }
 
 //////////////////////  Navbar   //////////////////////////
