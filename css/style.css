@@ -4,6 +4,7 @@ body {
 }
 
 /* BORDER */
+
 .border-small {
     border-radius: 8px;
 }
@@ -16,8 +17,8 @@ body {
     border-radius: 100%;
 }
 
-
 /* COLOR */
+
 .bg-sec {
     background-color: rgb(7, 7, 124);
 }
@@ -34,14 +35,14 @@ body {
     color: rgb(6, 6, 209);
 }
 
-
 /* FONT */
+
 .bold {
     font-weight: bold;
 }
 
-
 /* NAVIGATION_BAR */
+
 #nav-bar {
     width: 140px;
     height: 100vh;
@@ -79,7 +80,40 @@ body {
     color: rgba(255, 255, 255, 1);
 }
 
-.nav-element-lined{
+.nav-element-lined {
     color: white;
     border-left: white 5px solid;
+}
+
+/* RESPONSIVE NAVBAR */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(7, 7, 124);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f7f7f7;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
 }

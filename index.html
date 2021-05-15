@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
         crossorigin="anonymous"></script>
-    
+
     <script src="./script/mini_backend.js"></script>
     <script src="./script/overall.js"></script>
     <script src="./script/index.js"></script>
@@ -26,15 +26,17 @@
 
 <body onload="init()">
     <div class="d-flex">
-        <div id="nav-bar">
-            
-        </div>
+        <div id="nav-bar"></div>
+
+        <div id="responsive-navbar" class="d-none"></div>
 
         <div class="w-100 d-flex justify-content-center align-items-center">
             <div class="p-5 rounded-3 bg-main">
                 <div class="d-flex justify-content-evenly">
-                    <button id="login-button" class="mb-3 mode-buttons selected" onclick="changeModeToLogin()">Login</button>
-                    <button id="new-account-button" class="mb-3 mode-buttons" onclick="changeModeToRegistration()">New Account</button>
+                    <button id="login-button" class="mb-3 mode-buttons selected"
+                        onclick="changeModeToLogin()">Login</button>
+                    <button id="new-account-button" class="mb-3 mode-buttons" onclick="changeModeToRegistration()">New
+                        Account</button>
                 </div>
                 <div class="d-flex flex-column">
                     <div class="d-flex align-items-center justify-content-between mb-2">
@@ -45,7 +47,8 @@
                         <p class="m-auto">Password:</p>
                         <input id="input-password" type="password" class="ms-3">
                     </div>
-                    <button id="success-button" class="mx-auto p-1 text-white bg-sec border-small border-0" onclick="login()">Login</button>
+                    <button id="success-button" class="mx-auto p-1 text-white bg-sec border-small border-0"
+                        onclick="login()">Login</button>
                 </div>
             </div>
 

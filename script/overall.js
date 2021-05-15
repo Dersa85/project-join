@@ -3,6 +3,7 @@
 function init(page = '') {
     startBackend();
     generateNavbar(page);
+    generateResponsiveNavbar();
 
     if (page == 'backlog') {
         refreshBacklog();
@@ -71,3 +72,27 @@ function addBackgroundColor() {
     document.getElementById('nav-bar').classList.add('bg-sec');
 }
 
+///////////// RESPONSIVE NAVBAR ////////////////////
+
+function generateResponsiveNavbar() {
+    document.getElementById('responsive-navbar').innerHTML = `
+        <div id="mySidenav" class="sidenav">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Login</a>
+            <a href="board.html">Board</a>
+            <a href="backlog.html">Backlog</a>
+            <a href="addTask.html">Add Task</a>
+            <a href="help.html">Help</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    `;
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "70vw";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
