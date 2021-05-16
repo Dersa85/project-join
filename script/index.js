@@ -43,13 +43,7 @@ async function newAccount() {
         return;
     }
     console.log('new account with name ' + inputName.value);
-    let member = {
-        'name' : inputName.value,
-        'passwort' : inputPassword.value,
-        'picturePath' : '',
-        'alreadyAssigned': false, // addTask.js -> assignTo(i)
-        'indexOfArray': '' //  provides access: for toggle
-    } // TODO default Path
+    let member = createAccountJson(inputName, inputPassword);
     addObjectToDatabase('members', member);
 
 
@@ -68,3 +62,12 @@ async function getMember(memberName) {
     return;
 }
 
+function createAccountJson(name, pwd) {
+    return {
+        'name' : name,
+        'passwort' : pwd,
+        'picturePath' : '',
+        'alreadyAssigned': false, // addTask.js -> assignTo(i)
+        'indexOfArray': '' //  provides access: for toggle
+        } // TODO default Path
+}
