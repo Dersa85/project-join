@@ -7,7 +7,7 @@ async function refreshBacklog() {
     contentContainer.innerHTML = '';
     for (let i = 0; i < backlogTasks.length; i++) {
         contentContainer.innerHTML += `
-        <div class="accordion-item">
+        <div class="accordion-item bg-main">
             <h2 class="accordion-header" id="heading-${i}">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
                 ${backlogTasks[i]['title']}
