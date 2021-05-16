@@ -85,7 +85,7 @@ function generateResponsiveNavbar() {
             <a href="help.html">Help</a>
         </div>
 
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <span style="font-size:30px;cursor:pointer;margin-left:8px;" onclick="openNav()">&#9776;</span>
     `;
 }
 

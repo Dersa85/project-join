@@ -109,6 +109,10 @@ body {
     transition: 0.3s;
 }
 
+.sidenav a:hover{
+    color: grey;
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;
