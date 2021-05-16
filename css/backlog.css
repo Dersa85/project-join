@@ -66,6 +66,15 @@
     align-items: center;
 }
 
+.confirm-button {
+    display: block;
+    margin-left: auto;
+}
+
+.accordion {
+    margin-right: 5%;
+}
+
 /* confirm task */
 
 .absolute-center {
