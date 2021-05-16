@@ -1,7 +1,7 @@
 let assignedTo = []; // array for assignTo() function
 let currentIndexNumber = 0;
 
-async function createTask() {
+function createTask() {
 
     let title = document.getElementById('title');
     let category = document.getElementById('category');
@@ -9,7 +9,7 @@ async function createTask() {
     let dueDate = document.getElementById('dueDate');
     let urgency = document.getElementById('urgency');
 
-    await resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
+    resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
 
     let task = {
         'title': title.value,
@@ -25,11 +25,11 @@ async function createTask() {
     addObjectToDatabase('backlogTasks', task);
     resetValues();
 
-    removeAllUnderlinedProfiles()
+    removeAllUnderlinedProfiles();
 }
 
 function resetValues() {
-    assignedTo = []; 
+    assignedTo = [];
     title.value = '';
     description.value = '';
     dueDate.value = '';
@@ -91,69 +91,28 @@ async function removeSelectedProfile(i, array, name) {
     let indexOfArray = array[i]['indexOfArray'];
     assignedTo.splice(indexOfArray, 1);
 
-    await compareRightSide(i);
-    await compareLeftSide(i);
+    correctIndexNumberInMemberObject(i);
 
     currentIndexNumber--;
 }
 
-async function compareRightSide(i) {
+async function correctIndexNumberInMemberObject(i) {
+
     let members = await getBackendArray('members');
 
     let value = members[i]['indexOfArray'];
     members[i]['indexOfArray'] = ''; // Leerung
 
-    let neighbourindex = i + 1;
     let valueOfNeighbour;
 
-    if (members[neighbourindex]) {
+    members.forEach(member => {
+        let valueOfNeighbour = member['indexOfArray'];
 
-        for (let j = neighbourindex; j < members.length; j++) {
-            valueOfNeighbour = members[j]['indexOfArray'];
-            console.log('checking');
-            console.log('Comparing ' + i + ' to ' + j);
-
-            if (value < valueOfNeighbour) {
-                console.log('minus 1 an dieser Stelle:' + j);
-                console.log('Der Wert an der Stelle ' + j + ' beträgt: ' + valueOfNeighbour);
-                console.log('Der neue Wert an der Stelle ' + j + ' beträgt: ' + (valueOfNeighbour - 1));
-                members[j]['indexOfArray'] = (valueOfNeighbour - 1);
-            }
+        if (value < valueOfNeighbour) {
+            console.log('minus 1');
+            member['indexOfArray'] = valueOfNeighbour - 1;
         }
-
-    } else {
-        console.log('NeighbourIndex outside the array: Index ' + neighbourindex);
-    }
-
-}
-
-async function compareLeftSide(i) {
-    let members = await getBackendArray('members');
-
-    let value = members[i]['indexOfArray'];
-    members[i]['indexOfArray'] = ''; // Leerung
-
-    let neighbourindex = i - 1;
-    let valueOfNeighbour;
-
-    if (members[neighbourindex]) {
-
-        for (let j = neighbourindex; j >= 0; j--) {
-            valueOfNeighbour = members[j]['indexOfArray'];
-            console.log('checking');
-            console.log('Comparing ' + i + ' to ' + j);
-
-            if (value < valueOfNeighbour) {
-                console.log('minus 1 an dieser Stelle:' + j);
-                console.log('Der Wert an der Stelle ' + j + ' beträgt: ' + valueOfNeighbour);
-                console.log('Der neue Wert an der Stelle ' + j + ' beträgt: ' + (valueOfNeighbour - 1));
-                members[j]['indexOfArray'] = (valueOfNeighbour - 1);
-            }
-        }
-
-    } else {
-        console.log('NeighbourIndex outside the array: Index ' + neighbourindex);
-    }
+    });
 
 }
 
@@ -165,7 +124,7 @@ function removeUnderlineAtChoosenProfile(i) {
     document.getElementById('img-of-account-' + i).classList.remove('profile-picture-under-border');
 }
 
-function removeAllUnderlinedProfiles(){
+function removeAllUnderlinedProfiles() {
     for (let i = 0; i <= 2; i++) { // fixed for loop: 3 times für den Anfang erst! Adam, Alex, Mikail => 3
         removeUnderlineAtChoosenProfile(i);
     }
