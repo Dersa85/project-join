@@ -1,9 +1,9 @@
 
 
 
-function refreshBacklog() {
+async function refreshBacklog() {
     let contentContainer = document.getElementById('content-container');
-    let backlogTasks = backend.getItem('backlog') || [];
+    let backlogTasks = await backend.getItem('backlogTasks') || [];
     contentContainer.innerHTML = '';
     backlogTasks.forEach(task => {
         contentContainer.innerHTML += `
@@ -11,7 +11,7 @@ function refreshBacklog() {
             <div class="d-flex width-20">
                 <img class="margin-r-16" src="" alt="IMG">
                 <div>
-                    <p class="m-0">Einen Namen</p>
+                    <p class="m-0">${task['title']}</p>
                     <p class="m-0">Eine Email Adresse</p>
                 </div>
             </div>
@@ -21,6 +21,8 @@ function refreshBacklog() {
         `
     });
 }
+
+
 
 /////////////// confirm task /////////////////
 

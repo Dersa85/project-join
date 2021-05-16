@@ -36,7 +36,7 @@ function resetValues() {
 }
 
 async function resetValuesInBackedArray() {
-    let members = await getBackendArray('members');
+    members = await getBackendArray('members');
     for (let i = 0; i <= 2; i++) { // fixed for loop: 3 times für den Anfang erst! Adam, Alex, Mikail => 3
         members[i]['alreadyAssigned'] = false;
         members[i]['indexOfArray'] = '';

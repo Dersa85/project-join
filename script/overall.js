@@ -1,15 +1,15 @@
 
 
-function init(page = '') {
-    startBackend();
+async function init(page = '') {
+    await startBackend();
     generateNavbar(page);
     generateResponsiveNavbar();
 
     if (page == 'backlog') {
-        refreshBacklog();
+        await refreshBacklog();
     }
 
-    if (page == 'add-task') {
+    else if (page == 'add-task') {
         showProfilePicInBlockElement();
     }
 }
