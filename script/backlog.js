@@ -2,26 +2,62 @@
 
 
 async function refreshBacklog() {
-    let contentContainer = document.getElementById('content-container');
+    let contentContainer = document.getElementById('accordion-container');
     let backlogTasks = await backend.getItem('backlogTasks') || [];
     contentContainer.innerHTML = '';
-    backlogTasks.forEach(task => {
+    for (let i = 0; i < backlogTasks.length; i++) {
         contentContainer.innerHTML += `
-        <div class="d-flex margin-bottom-16 backlog-task border-large bg-main">
-            <div class="d-flex width-20">
-                <img class="margin-r-16" src="" alt="IMG">
-                <div>
-                    <p class="m-0">${task['title']}</p>
-                    <p class="m-0">Eine Email Adresse</p>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-${i}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
+                ${backlogTasks[i]['title']}
+                ${createImgsForTask(backlogTasks[i])}
+            </button>
+            </h2>
+            <div id="collapse-${i}" class="accordion-collapse collapse" aria-labelledby="heading-${i}" data-bs-parent="#accordion-container">
+                <div class="accordion-body d-flex">
+                    ${createDetailFrame(backlogTasks[i])}
                 </div>
             </div>
-            <p class="width-20 m-0 text-center">Marketing</p>
-            <p class="width-60 m-0 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
+
         `
-    });
+    }
 }
 
+function createImgsForTask(jsonTask) {
+    let assignedArray = jsonTask['assignedTo'];
+    let template = ``
+    for (let i = 0; i < assignedArray.length; i++) {
+        template += `
+        <img class="accordion-img" src="./img/pp.jpg">
+        `
+    }
+    return template;
+}
+
+
+function createDetailFrame(jsonTask) {
+    let template = `
+    <div>
+        <p style="font-size: 0.75rem; color: blue;">Category:</p>
+        <p>${jsonTask['category']}</p>
+    </div>
+    <div class="ms-3 border-start ps-3">
+        <p style="font-size: 0.75rem; color: blue;">Due Date:</p>
+        <p>${jsonTask['dueDate']}</p>
+    </div>
+    <div class="ms-3 border-start ps-3">
+        <p style="font-size: 0.75rem; color: blue;">Urgency:</p>
+        <p>${jsonTask['urgency']}</p>
+    </div>
+    <div class="ms-3 border-start ps-3">
+        <p style="font-size: 0.75rem; color: blue;">Description:</p>
+        <p>${jsonTask['description']}</p>
+    </div>
+    `
+    return template;
+}
 
 
 /////////////// confirm task /////////////////
