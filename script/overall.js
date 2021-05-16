@@ -1,9 +1,11 @@
-
+let members;
 
 async function init(page = '') {
     await startBackend();
     generateNavbar(page);
     generateResponsiveNavbar();
+
+    members = await getBackendArray('members');
 
     if (page == 'backlog') {
         await refreshBacklog();
@@ -21,18 +23,18 @@ async function startBackend() {
     await downloadFromServer();
 }
 
-async function getBackendArray(key) {
-    return await backend.getItem(key) || [];
+function getBackendArray(key) {
+    return backend.getItem(key) || [];
 }
 
-async function setBackendArray(key, array) {
-    await backend.setItem(key, array);
+function setBackendArray(key, array) {
+    backend.setItem(key, array);
 }
 
 async function addObjectToDatabase(key, json) {
     let array = await getBackendArray(key);
     array.push(json);
-    await setBackendArray(key, array);
+    setBackendArray(key, array);
 }
 
 //////////////////////  Navbar   //////////////////////////

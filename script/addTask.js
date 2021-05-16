@@ -54,7 +54,7 @@ function showProfilePicInBlockElement() {
 function generateHtmlImageBox(i) {
     return `
     <div id="img-of-account-${i}" class="image-box">
-        <img onclick="assignTo(${i})" class="profile-picture" src="./img/pp.jpg">
+        <img onclick="assignTo(${i})" class="profile-picture" src="${members[i]['picturePath']}">
     </div>
     `;
 }
