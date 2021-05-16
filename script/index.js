@@ -22,11 +22,20 @@ function changeModeToRegistration() {
 }
 
 
-function login() {
+async function login() {
     let inputName = document.getElementById('input-name');
     let inputPassword = document.getElementById('input-password');
     console.log('login with ', inputName.value);
 
+    let user = await getPossibleUser(inputName.value, inputPassword.value);
+    
+    if (!user) {
+        console.log('Loggin benutzername oder passwort ist falsch');
+        return;
+    }
+    console.log('Anmelden erfolgreich');
+    localStorage.setItem('loginname', user['name']);
+    
     // redirection with:
     // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
     // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
@@ -56,7 +65,7 @@ async function getMember(memberName) {
     let members = await backend.getItem('members') || [];
     for (let i = 0; i < members.length; i++) {
         if (members[i]['name'] == memberName) {
-            return members[i]['name'];
+            return members[i];
         }
     }
     return;
@@ -70,4 +79,17 @@ function createAccountJson(name, pwd) {
         'alreadyAssigned': false, // addTask.js -> assignTo(i)
         'indexOfArray': '' //  provides access: for toggle
         } // TODO default Path
+}
+
+async function getPossibleUser(username, password) {
+    let user = await getMember(username);
+    
+    if (!user) {
+        return;
+    }
+    
+    if (user['passwort'] != password) {
+        return;
+    }
+    return user;
 }
