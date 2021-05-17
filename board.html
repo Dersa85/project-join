@@ -25,25 +25,59 @@
 
         <div id="responsive-navbar" class="d-none"></div>
 
-        <div class="vh-100">
-            <h2 class="m-4 bold">BOARD</h2>
+        <div class="vh-100" style="align-items: center; display: flex;">
+
             <div class="d-flex h-75">
-                <div class="d-flex flex-column h-100 ms-4">
-                    <h2>TO DO</h2>
-                    <div class="bg-main" style="flex: 1;"></div>
+
+                <!-- ToDo bar-->
+                <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
+                    <h2 style="text-align: center;">TO DO</h2>
+                    <div class="bg-main"
+                        style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+
+                        <!-- task card dummie-->
+                        <div class="card" style="width: 80%;margin-top: 25px;background-color: beige">
+                            <div class="card-body">
+                                <h6 class="card-title" style="font-size: 1.05rem;">This is a task card dummie</h6>
+                                <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
+                            </div>
+                        </div>
+
+                        <!-- task card dummie-->
+                        <div class="card" style="width: 80%;margin-top: 25px;background-color: beige">
+                            <div class="card-body">
+                                <h6 class="card-title" style="font-size: 1.05rem;">This is a task card dummie</h6>
+                                <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="d-flex flex-column h-100 ms-4">
-                    <h2>PROGRESS</h2>
-                    <div class="bg-main" style="flex: 1;"></div>
+
+                <!-- Progress bar-->
+                <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
+                    <h2 style="text-align: center;">PROGRESS</h2>
+                    <div class="bg-main"
+                        style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                    </div>
                 </div>
-                <div class="d-flex flex-column h-100 ms-4">
-                    <h2>TESTING</h2>
-                    <div class="bg-main" style="flex: 1;"></div>
+
+                <!-- Testing bar-->
+                <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
+                    <h2 style="text-align: center;">TESTING</h2>
+                    <div class="bg-main"
+                        style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                    </div>
                 </div>
-                <div class="d-flex flex-column h-100 ms-4">
-                    <h2>DONE</h2>
-                    <div class="bg-main" style="flex: 1;"></div>
+
+                <!-- Done bar-->
+                <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
+                    <h2 style="text-align: center;">DONE</h2>
+                    <div class="bg-main"
+                        style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
