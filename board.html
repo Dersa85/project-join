@@ -19,7 +19,7 @@
     <title>Join</title>
 </head>
 
-<body onload="init('board')">
+<body onload="init('board'); updateHTML()">
     <div class="d-flex vh-100">
         <div id="nav-bar"></div>
 
@@ -32,32 +32,15 @@
                 <!-- ToDo bar-->
                 <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">TO DO</h2>
-                    <div class="bg-main"
+                    <div id="todo" class="bg-main" ondrop="moveTo('todo')" ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')"
                         style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
-
-                        <!-- task card dummie-->
-                        <div class="card" style="width: 80%;margin-top: 25px;background-color: beige">
-                            <div class="card-body">
-                                <h6 class="card-title" style="font-size: 1.05rem;">This is a task card dummie</h6>
-                                <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
-                            </div>
-                        </div>
-
-                        <!-- task card dummie-->
-                        <div class="card" style="width: 80%;margin-top: 25px;background-color: beige">
-                            <div class="card-body">
-                                <h6 class="card-title" style="font-size: 1.05rem;">This is a task card dummie</h6>
-                                <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
                 <!-- Progress bar-->
                 <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">PROGRESS</h2>
-                    <div class="bg-main"
+                    <div id="progress" class="bg-main" ondrop="moveTo('progress')" ondragover="allowDrop(event); highlight('progress')"  ondragleave="removeHighlight('progress')"
                         style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                     </div>
                 </div>
@@ -65,7 +48,7 @@
                 <!-- Testing bar-->
                 <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">TESTING</h2>
-                    <div class="bg-main"
+                    <div id="testing" class="bg-main" ondrop="moveTo('testing')" ondragover="allowDrop(event); highlight('testing')"  ondragleave="removeHighlight('testing')"
                         style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                     </div>
                 </div>
@@ -73,7 +56,7 @@
                 <!-- Done bar-->
                 <div class="ms-4" style="width: 20vw;display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">DONE</h2>
-                    <div class="bg-main"
+                    <div id="done" class="bg-main"  ondrop="moveTo('done')" ondragover="allowDrop(event); highlight('done')"  ondragleave="removeHighlight('done')"
                         style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                     </div>
                 </div>
