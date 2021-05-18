@@ -9,26 +9,28 @@ h5 {
 }
 
 .main {
-    background-color: #F2F2F2 !important;
-    padding-bottom: 32px;
     display: flex;
     position: relative;
 }
 
 .block {
-    margin: 0 40px;
+    min-width: 100%;
+    padding-left: 120px;
+    transition: 1s;
+    position: relative;
 }
 
 .block-element {
-    margin: 32px 0;
+    margin: 75px 0;
 }
 
 .form-select {
     width: 350px !important;
 }
 
-#title {
+#title, #dueDate {
     letter-spacing: 1px;
+    width: 400px;
 }
 
 #description {
@@ -56,10 +58,6 @@ h5 {
     margin: 0 12px;
 }
 
-.btn-cancel {
-    color: #0d6efd !important;
-}
-
 .position-of-container {
     position: absolute;
     right: 40px;
@@ -68,4 +66,55 @@ h5 {
 
 .image-box {
     margin: 0 10px;
+}
+
+.card {
+    width: 1025px;
+    min-height: 590px;
+}
+
+.card-body {
+    padding: 0 !important;
+    background-color: #F2F2F2 !important;
+}
+
+.card-foooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+}
+
+.foooter-btn {
+    width: 100px;
+    margin: 0 12px;
+}
+
+.section-slide-container {
+    display: flex;
+    min-height: 100%;
+    overflow-x: hidden
+}
+
+.mr-25{
+    margin-right: 25px;
+}
+
+@media (max-width: 1275px), (max-height: 850px) {
+    .page-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .main {
+        margin-left: -60px;
+        justify-content: center;
+        flex: 1;
+    }
+    .card {
+        width: 100%;
+    }
+    .section-slide-container {
+        width: calc( 100vw - 140px);
+    }
 }

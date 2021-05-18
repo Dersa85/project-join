@@ -28,66 +28,89 @@
 
         <div id="responsive-navbar" class="d-none"></div>
 
-        <div>
+        <div class="page-content">
+
             <h2 class="headline-of-page">Add Task</h2>
 
             <div class="main bg-main border-small">
-                <div class="block">
-                    <!-- title -->
-                    <div class="block-element">
-                        <h5>Title</h5>
-                        <input id="title" type="text" class="form-control w-75">
-                    </div>
-                    <!-- category -->
-                    <div class="block-element">
-                        <h5>Category</h5>
-                        <select id="category" class="form-select">
-                            <option>Marketing</option>
-                            <option>Development</option>
-                            <option>Engineering</option>
-                            <option>Design</option>
-                            <option>Product</option>
-                            <option>Testing</option>
-                            <option>Sale</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-                    <!-- descrition -->
-                    <div class="block-element">
-                        <h5>Description</h5>
-                        <textarea id="description" class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="block">
-                    <!-- due date -->
-                    <div class="block-element">
-                        <h5>Due Date</h5>
-                        <input id="dueDate" type="date" class="form-control">
-                    </div>
-                    <!-- urgency -->
-                    <div class="block-element">
-                        <h5>Urgency</h5>
-                        <select id="urgency" class="form-select">
-                            <option value="1">Low</option>
-                            <option value="2">Normal</option>
-                            <option value="3">High</option>
-                        </select>
-                    </div>
-                    <!-- assignd to -->
-                    <div class="block-element">
-                        <h5>Assigned To</h5>
-                        <div class="d-flex" id="image-container"></div>
-                    </div>
-                </div>
-                <!--buttons-->
-                <div class="position-of-container">
-                    <button type="button" class="btn btn-cancel">Cancel</button>
-                    <button onclick="createTask()" type="button" class="btn btn-primary">Create Task</button>
-                </div>
-            </div>
-        </div>
 
-    </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="section-slide-container">
+                            <div id="section-0" class="block">
+                                <!-- title -->
+                                <div class="block-element">
+                                    <h5>Title</h5>
+                                    <input id="title" type="text" class="form-control" style="width:400px;">
+                                </div>
+                                <!-- category -->
+                                <div class="block-element">
+                                    <h5>Category</h5>
+                                    <select id="category" class="form-select">
+                                        <option>Marketing</option>
+                                        <option>Development</option>
+                                        <option>Engineering</option>
+                                        <option>Design</option>
+                                        <option>Product</option>
+                                        <option>Testing</option>
+                                        <option>Sale</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="section-1" class="block d-flex"
+                                style="padding-left: 0px !important;justify-content: space-around;">
+                                <!-- descrition -->
+                                <div class="block-element">
+                                    <h5>Description</h5>
+                                    <textarea id="description" class="form-control"></textarea>
+                                </div>
+                                <!-- assignd to -->
+                                <div class="block-element">
+                                    <h5>Assigned To</h5>
+                                    <div class="d-flex" id="image-container"></div>
+                                </div>
+                            </div>
+                            <div id="section-2" class="block">
+                                <!-- due date -->
+                                <div class="block-element">
+                                    <h5>Due Date</h5>
+                                    <input id="dueDate" type="date" class="form-control">
+                                </div>
+                                <!-- urgency -->
+                                <div class="block-element">
+                                    <h5>Urgency</h5>
+                                    <select id="urgency" class="form-select">
+                                        <option value="1">Low</option>
+                                        <option value="2">Normal</option>
+                                        <option value="3">High</option>
+                                    </select>
+                                </div>
+                                <!--buttons-->
+                                <div class="position-of-container">
+                                    <button onclick="createTask()" type="button" class="btn btn-primary">Create
+                                        Task</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-foooter">
+
+                        <div class="buttons">
+                            <a href="addTask.html" class="mr-25">cancle</a>
+                            <span>|</span>
+                            <button onclick="goBack()" class="foooter-btn">back</button>
+                            <span>|</span>
+                            <button onclick="goFurther()" class="foooter-btn">go</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
 </body>
 

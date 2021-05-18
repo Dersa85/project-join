@@ -129,3 +129,32 @@ function removeAllUnderlinedProfiles() {
         removeUnderlineAtChoosenProfile(i);
     }
 }
+
+let x = 0;
+
+function goFurther() {
+    if (x > - 200) {
+        x -= 100;
+        for (let i = 0; i < 3; i++) {
+            translateX(i, x);
+        }
+    } else {
+        console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
+    }
+}
+
+function goBack() {
+    if (x < 0) {
+        x += 100;
+        for (let i = 0; i < 3; i++) {
+            translateX(i, x);
+        }
+    } else {
+        console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
+    }
+
+}
+
+function translateX(id, x) {
+    document.getElementById('section-' + id).style.transform = `translateX(${x}%)`;
+}
