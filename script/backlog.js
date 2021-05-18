@@ -9,7 +9,7 @@ async function refreshBacklog() {
         contentContainer.innerHTML += `
         <div class="accordion-item bg-main">
             <h2 class="accordion-header" id="heading-${i}">
-            <button class="accordion-button collapsed urgency-${backlogTasks[i]['urgency']}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
+            <button class="accordion-button collapsed item-button-border-${backlogTasks[i]['category']} urgency-${backlogTasks[i]['urgency']}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
                 ${createImgsForTask(backlogTasks[i])}
                 ${backlogTasks[i]['title']}
             </button>

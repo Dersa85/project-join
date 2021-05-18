@@ -131,6 +131,34 @@
     background-position: 50% 50%
 }
 
+[class*=item-button-border] {
+    border-left: 8px solid;
+}
+.item-button-border-Marketing {
+    border-color: teal;
+}
+.item-button-border-Developement {
+    border-color: thistle;
+}
+.item-button-border-Engineering {
+    border-color: tomato;
+}
+.item-button-border-Design {
+    border-color: wheat;
+}
+.item-button-border-Product {
+    border-color: yellowgreen;
+}
+.item-button-border-Testing {
+    border-color: blueviolet;
+}
+.item-button-border-Sale {
+    border-color: brown;
+}
+.item-button-border-Other {
+    border-color: darkblue;
+}
+
 
 @media (max-width : 700px) {
     .item-detail {
