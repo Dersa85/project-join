@@ -117,7 +117,7 @@
 .urgency-2 {
     background-size: 200%;
     background-position: 0% 100%;
-    background-image: linear-gradient(5deg, white, white, yellow, yellow);
+    background-image: linear-gradient(5deg, white, white, rgb(228, 228, 0), rgb(228, 228, 0));
     transition: 225ms ease-in-out background-position;
 }
 .urgency-3 {

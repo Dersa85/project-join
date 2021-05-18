@@ -27,18 +27,6 @@ async function refreshBacklog() {
     }
 }
 
-function getUrgencyImg(urgency) {
-    let img = '';
-    if (urgency == '1') {
-        img = `<img id='urgency-icon' src="./img/low-urgency.png"></img>`;
-    } else if (urgency == '2') {
-        img = `<img id='urgency-icon' src="./img/empty.png"></img>`;
-    } else {
-        img = `<img id='urgency-icon' src="./img/warning.png"></img>`;
-    }
-    return img;
-}
-
 function createImgsForTask(jsonTask) {
     let assignedArray = jsonTask['assignedTo'];
     let template = ``;
