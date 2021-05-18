@@ -9,14 +9,14 @@ async function refreshBacklog() {
         contentContainer.innerHTML += `
         <div class="accordion-item bg-main">
             <h2 class="accordion-header" id="heading-${i}">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
-                ${backlogTasks[i]['title']}
+            <button class="accordion-button collapsed urgency-${backlogTasks[i]['urgency']}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
                 ${createImgsForTask(backlogTasks[i])}
+                ${backlogTasks[i]['title']}
             </button>
             </h2>
             <div id="collapse-${i}" class="accordion-collapse collapse" aria-labelledby="heading-${i}" data-bs-parent="#accordion-container">
                 <div class="accordion-body">
-                    <div class="d-flex">
+                    <div class="item-detail">
                     ${createDetailContent(backlogTasks[i])}
                     </div>
                     <button class="btn btn-primary confirm-button" onclick="onConfirmButtonPressed(${i})">Confirm</button>
@@ -27,17 +27,44 @@ async function refreshBacklog() {
     }
 }
 
+function getUrgencyImg(urgency) {
+    let img = '';
+    if (urgency == '1') {
+        img = `<img id='urgency-icon' src="./img/low-urgency.png"></img>`;
+    } else if (urgency == '2') {
+        img = `<img id='urgency-icon' src="./img/empty.png"></img>`;
+    } else {
+        img = `<img id='urgency-icon' src="./img/warning.png"></img>`;
+    }
+    return img;
+}
+
 function createImgsForTask(jsonTask) {
     let assignedArray = jsonTask['assignedTo'];
     let template = ``;
-    for (let i = 0; i < assignedArray.length; i++) {
-        template += `
-        <img class="accordion-img" src="./img/pp.jpg">
-        `;
+    for (let i = 0; i < 3; i++) {
+        if (assignedArray.length <= 3) {
+            template += `<img class="accordion-img" src=${getImgPath(assignedArray[i])}></img>`;
+        } else {
+            template += `<img class="accordion-img" src="./img/empty.png"></img>`;
+        }
+        
+        
     }
     return template;
 }
 
+function getImgPath(member) {
+    if (member == 'Adam') {
+        return './img/na.jpg';
+    } else if (member == 'Mikail') {
+        return './img/mikail.jpg';
+    } else if (member == 'Alex') {
+        return './img/alex.png';
+    }
+    console.log('Member:', member, 'has no Picture');
+    return './img/empty.png';
+}
 
 function createDetailContent(jsonTask) {
     let template = `
@@ -45,15 +72,15 @@ function createDetailContent(jsonTask) {
         <p style="font-size: 0.75rem; color: blue;">Category:</p>
         <p>${jsonTask['category']}</p>
     </div>
-    <div class="ms-3 border-start ps-3">
+    <div class="item-detail-content">
         <p style="font-size: 0.75rem; color: blue;">Due Date:</p>
         <p>${jsonTask['dueDate']}</p>
     </div>
-    <div class="ms-3 border-start ps-3">
+    <div class="item-detail-content">
         <p style="font-size: 0.75rem; color: blue;">Urgency:</p>
         <p>${jsonTask['urgency']}</p>
     </div>
-    <div class="ms-3 border-start ps-3 ">
+    <div class="item-detail-content">
         <p style="font-size: 0.75rem; color: blue;">Description:</p>
         <p>${jsonTask['description']}</p>
     </div>
