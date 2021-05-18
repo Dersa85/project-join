@@ -96,7 +96,7 @@ h5 {
     overflow-x: hidden
 }
 
-.mr-25{
+.mr-25 {
     margin-right: 25px;
 }
 
@@ -116,5 +116,11 @@ h5 {
     }
     .section-slide-container {
         width: calc( 100vw - 140px);
+    }
+}
+
+@media (max-height: 730px) {
+    .card-body {
+        max-height: 470px;
     }
 }
