@@ -36,8 +36,6 @@ function createImgsForTask(jsonTask) {
         } else {
             template += `<img class="accordion-img" src="./img/empty.png"></img>`;
         }
-        
-        
     }
     return template;
 }

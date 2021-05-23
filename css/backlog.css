@@ -172,4 +172,13 @@
         padding-left: 0;
         padding-top: 8px;
     }
+
+    #title {
+        text-align: center;
+    }
+
+    #conten-container {
+        margin-left: 16px;
+        width: 100%;
+    }
 }
