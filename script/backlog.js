@@ -68,8 +68,7 @@ function closeConfirmTask() {
 async function onConfirmButtonPressed(index) {
     showConfirmTask();
     let task = await backend.getItem('backlogTasks')[index];
-    let createAt = millisecoundsToString(task['createdAt']);
-    console.log(createAt);
+    let createAt = millisecoundsToDateString(task['createdAt']);
     document.getElementById('exampleModalLabel').innerText = task['title'];
     document.getElementById('detail-content').innerHTML = `
         <div>
@@ -81,14 +80,14 @@ async function onConfirmButtonPressed(index) {
             <p><b>Description:</b> ${task['description']}</p>
         </div>
     `;
-    document.getElementById('accept-button').setAttribute('onclick', 'acceptTask('+index+')');
-    document.getElementById('delete-button').setAttribute('onclick', 'deleteTask('+index+')');
+    document.getElementById('accept-button').setAttribute('onclick', 'acceptTask(' + index + ')');
+    document.getElementById('delete-button').setAttribute('onclick', 'deleteTask(' + index + ')');
 
 }
 
-function millisecoundsToString(ms) {
+function millisecoundsToDateString(ms) {
     let date = new Date(ms);
-    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getUTCDate()}`
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getUTCDate()}`
 }
 
 async function deleteTask(index) {
@@ -104,11 +103,11 @@ async function getAssignedImgs(names) {
     let returnContent = '';
     let members = await backend.getItem('members');
     names.forEach(name => {
-        for (let i = 0; i < members.length; i++) {
-            if (members[i]['name'] == name) {
-                returnContent += `<img class='accordion-img' src='${members[i]['picturePath']}'>`
+        members.forEach(member => {
+            if (member['name'] == name) {
+                returnContent += `<img class='accordion-img' src='${member['picturePath']}'>`
             }
-        }
+        })
     });
     return returnContent;
 }
