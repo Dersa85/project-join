@@ -10,7 +10,7 @@ async function refreshBacklog() {
         <div class="accordion-item bg-main">
             <h2 class="accordion-header" id="heading-${i}">
             <button class="accordion-button collapsed item-button-border-${backlogTasks[i]['category']} urgency-${backlogTasks[i]['urgency']}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
-                ${createImgsForTask(backlogTasks[i])}
+                ${await getAssignedImgs(backlogTasks[i]['assignedTo'])}
                 ${backlogTasks[i]['title']}
             </button>
             </h2>
@@ -19,7 +19,7 @@ async function refreshBacklog() {
                     <div class="item-detail">
                     ${createDetailContent(backlogTasks[i])}
                     </div>
-                    <button class="btn btn-primary confirm-button" onclick="onConfirmButtonPressed(${i})">Confirm</button>
+                    <button class="btn btn-primary confirm-button" onclick="onConfirmButtonPressed(${i})">Show details</button>
                 </div>
             </div>
         </div>
@@ -27,32 +27,12 @@ async function refreshBacklog() {
     }
 }
 
-function createImgsForTask(jsonTask) {
-    let assignedArray = jsonTask['assignedTo'];
-    let template = ``;
-    for (let i = 0; i < 3; i++) {
-        if (assignedArray.length <= 3) {
-            template += `<img class="accordion-img" src=${getImgPath(assignedArray[i])}></img>`;
-        } else {
-            template += `<img class="accordion-img" src="./img/empty.png"></img>`;
-        }
-    }
-    return template;
-}
-
-function getImgPath(member) {
-    if (member == 'Adam') {
-        return './img/na.jpg';
-    } else if (member == 'Mikail') {
-        return './img/mikail.jpg';
-    } else if (member == 'Alex') {
-        return './img/alex.png';
-    }
-    console.log('Member:', member, 'has no Picture');
-    return './img/empty.png';
-}
-
 function createDetailContent(jsonTask) {
+
+    let img = document.createElement('img');
+    img.setAttribute('data-titel', 'todo');
+    img.setAttribute('content', 'Beschreibung');
+    let titel = img.getAttribute('data-titel');
     let template = `
     <div>
         <p style="font-size: 0.75rem; color: blue;">Category:</p>
@@ -81,11 +61,72 @@ function showConfirmTask() {
     document.getElementById('confirmTask').classList.remove('d-none');
 }
 
-function deleteConfirmTask() {
+function closeConfirmTask() {
     document.getElementById('confirmTask').classList.add('d-none');
 }
 
-function onConfirmButtonPressed(index) {
-    console.log('on Confirm Button pressed, Task index:', index);
-    // TODO
+async function onConfirmButtonPressed(index) {
+    showConfirmTask();
+    let task = await backend.getItem('backlogTasks')[index];
+    let createAt = millisecoundsToString(task['createdAt']);
+    console.log(createAt);
+    document.getElementById('exampleModalLabel').innerText = task['title'];
+    document.getElementById('detail-content').innerHTML = `
+        <div>
+            <p><b>Assigned to:</b> ${await getAssignedImgs(task['assignedTo'])}</p>
+            <p><b>Category:</b> ${task['category']}</p>
+            <p><b>Created at:</b> ${createAt}</p>
+            <p><b>Due Date:</b> ${task['dueDate']}</p>
+            <p><b>Urgency:</b> ${task['urgency']}</p>
+            <p><b>Description:</b> ${task['description']}</p>
+        </div>
+    `;
+    document.getElementById('accept-button').setAttribute('onclick', 'acceptTask('+index+')');
+    document.getElementById('delete-button').setAttribute('onclick', 'deleteTask('+index+')');
+
+}
+
+function millisecoundsToString(ms) {
+    let date = new Date(ms);
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getUTCDate()}`
+}
+
+async function deleteTask(index) {
+    extractFromBacklogTask(index);
+    closeConfirmTask();
+    refreshBacklog();
+}
+
+async function getAssignedImgs(names) {
+    if (names.length == 0) {
+        return '';
+    }
+    let returnContent = '';
+    let members = await backend.getItem('members');
+    names.forEach(name => {
+        for (let i = 0; i < members.length; i++) {
+            if (members[i]['name'] == name) {
+                returnContent += `<img class='accordion-img' src='${members[i]['picturePath']}'>`
+            }
+        }
+    });
+    return returnContent;
+}
+
+async function acceptTask(id) {
+    let transferTask = await extractFromBacklogTask(id);
+    let borderTasks = await backend.getItem('borderTasks') || [];
+    transferTask['board-category'] = 'todo';
+    borderTasks.push(transferTask);
+    backend.setItem('borderTasks', borderTasks);
+    closeConfirmTask();
+    refreshBacklog();
+}
+
+async function extractFromBacklogTask(id) {
+    let backlogTasks = await backend.getItem('backlogTasks');
+    let task = backlogTasks[id];
+    backlogTasks.splice(id, 1);
+    backend.setItem('backlogTasks', backlogTasks);
+    return task;
 }

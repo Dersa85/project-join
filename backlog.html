@@ -41,16 +41,23 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button onclick="deleteConfirmTask()" type="button" class="btn-close" data-bs-dismiss="modal"
+                <button onclick="closeConfirmTask()" type="button" class="btn-close" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                Bestätigen oder Schließen Sie diese Task
+            <div id="detail-content" class="modal-body">
+                <div>
+                    <p><b>Assigned to:</b> <span>img, img, img</span></p>
+                    <p><b>Category:</b> <span>cat</span></p>
+                    <p><b>Created at:</b> <span>10.12.2020</span></p>
+                    <p><b>Due Date:</b> <span>10.12.2020</span></p>
+                    <p><b>Urgency:</b> <span>3</span></p>
+                    <p><b>Description:</b> <span>big text</span></p>
+                </div>
             </div>
             <div class="modal-footer">
-                <button onclick="deleteConfirmTask()" type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button onclick="deleteTask()" id="delete-button" type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Delete</button>
+                <button id='accept-button' type="button" class="btn btn-primary">Accept Task</button>
             </div>
         </div>
     </div>
