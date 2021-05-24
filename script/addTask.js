@@ -3,29 +3,36 @@ let currentIndexNumber = 0;
 
 function createTask() {
 
-    let title = document.getElementById('title');
-    let category = document.getElementById('category');
-    let description = document.getElementById('description');
-    let dueDate = document.getElementById('dueDate');
-    let urgency = document.getElementById('urgency');
+    if (checkWhetherFieldIsFilled('description') && assignedTo.length != 0) {
 
-    resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
+        let title = document.getElementById('title');
+        let category = document.getElementById('category');
+        let description = document.getElementById('description');
+        let dueDate = document.getElementById('dueDate');
+        let urgency = document.getElementById('urgency');
 
-    let task = {
-        'title': title.value,
-        'category': category.value,
-        'description': description.value,
-        'createdAt': new Date().getTime(),
-        'dueDate': dueDate.value,
-        'urgency': urgency.value,
-        'board-category': '',
-        'assignedTo': assignedTo
+        resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
+
+        let task = {
+            'title': title.value,
+            'category': category.value,
+            'description': description.value,
+            'createdAt': new Date().getTime(),
+            'dueDate': dueDate.value,
+            'urgency': urgency.value,
+            'board-category': '',
+            'assignedTo': assignedTo
+        }
+
+        addObjectToDatabase('backlogTasks', task);
+        resetValues();
+
+        removeAllUnderlinedProfiles();
+        goBack();
+        alert('Task wurde erstellt!');
+    }else{
+        alert('Please enter Value!')
     }
-
-    addObjectToDatabase('backlogTasks', task);
-    resetValues();
-
-    removeAllUnderlinedProfiles();
 }
 
 function resetValues() {
@@ -135,16 +142,20 @@ let blocks = document.getElementsByClassName('block');
 let createTaskBtn = document.getElementById('create-task-btn');
 
 function goFurther() {
-    if (x > - 100) {
-        x -= 100;
-        for (let i = 0; i < blocks.length; i++) {
-            translateX(i, x);
+    if (checkWhetherFieldIsFilled('title') && checkWhetherFieldIsFilled('dueDate')) {
+        if (x > - 100) {
+            x -= 100;
+            for (let i = 0; i < blocks.length; i++) {
+                translateX(i, x);
+            }
+            let createTaskBtn = document.getElementById('create-task-btn');
+            createTaskBtn.innerHTML = 'create Task';
+            createTaskBtn.setAttribute('onclick', 'createTask()');
+        } else {
+            console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
         }
-        let createTaskBtn = document.getElementById('create-task-btn');
-        createTaskBtn.innerHTML = 'create Task';
-        createTaskBtn.setAttribute('onclick', 'createTask()');
     } else {
-        console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
+        alert('Please enter Value');
     }
 }
 
@@ -157,7 +168,7 @@ function goBack() {
         let goFurtherBtn = document.getElementById('create-task-btn');
         goFurtherBtn.innerHTML = 'go';
         goFurtherBtn.setAttribute('onclick', 'goFurther()');
-        
+
     } else {
         console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
     }
@@ -166,4 +177,14 @@ function goBack() {
 
 function translateX(id, x) {
     document.getElementById('section-' + id).style.transform = `translateX(${x}%)`;
+}
+
+function checkWhetherFieldIsFilled(id) {
+    let value = document.getElementById(id).value;
+    let lengthOfValue = value.length;
+    if (lengthOfValue != 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
