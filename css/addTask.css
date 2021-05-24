@@ -24,6 +24,7 @@ h5 {
 #title, #dueDate, .form-select {
     letter-spacing: 1px;
     width: 350px !important;
+    max-width: 80vw;
 }
 
 #description {
@@ -110,5 +111,66 @@ h5 {
     }
     .section-slide-container {
         width: calc( 100vw - 150px);
+    }
+}
+
+@media (max-width: 1000px) {
+    .block {
+        align-items: center;
+    }
+    .block-row {
+        flex-direction: column;
+    }
+    .block-element {
+        margin-bottom: 35px;
+    }
+    #section-1 {
+        flex-direction: column-reverse;
+    }
+    #description {
+        max-width: calc(0.85 * (100vw - 140px)) !important;
+        height: 250px;
+    }
+}
+
+@media (max-width: 700px) {
+    .headline-of-page {
+        margin: 25px 0 30px 0;
+        text-align: center;
+    }
+    .main {
+        margin-left: 0;
+        height: calc(100vh - 55px - 32px);
+        flex: unset;
+    }
+    .section-slide-container {
+        width: 100vw;
+    }
+    #description {
+        max-width: calc(0.85 * 100vw) !important;
+        height: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    h5 {
+        font-size: 1.025rem !important;
+    }
+    .block-element {
+        margin-bottom: 25px;
+    }
+    .block {
+        justify-content: center;
+    }
+    #description {
+        height: 175px;
+    }
+    #section-1 {
+        align-items: flex-start !important;
+        padding-left: 30px;
+    }
+    #title, #dueDate, .form-select {
+        height: 32px;
+        font-size: 0.8rem !important;
     }
 }
