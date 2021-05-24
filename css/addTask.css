@@ -15,22 +15,15 @@ h5 {
 
 .block {
     min-width: 100%;
-    padding-left: 120px;
     transition: 1s;
     position: relative;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.block-element {
-    margin: 75px 0;
-}
-
-.form-select {
-    width: 350px !important;
-}
-
-#title, #dueDate {
+#title, #dueDate, .form-select {
     letter-spacing: 1px;
-    width: 400px;
+    width: 350px !important;
 }
 
 #description {
@@ -113,14 +106,9 @@ h5 {
     }
     .card {
         width: 100%;
+        min-height: unset;
     }
     .section-slide-container {
-        width: calc( 100vw - 140px);
-    }
-}
-
-@media (max-height: 730px) {
-    .card-body {
-        max-height: 470px;
+        width: calc( 100vw - 150px);
     }
 }

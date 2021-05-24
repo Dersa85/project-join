@@ -37,29 +37,46 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="section-slide-container">
-                            <div id="section-0" class="block">
-                                <!-- title -->
-                                <div class="block-element">
-                                    <h5>Title</h5>
-                                    <input id="title" type="text" class="form-control" style="width:400px;">
+                            <div id="section-0" class="block" style="flex-direction: column;">
+                                <div class="block-row" style="display: flex; justify-content: space-evenly;">
+                                    <!-- title -->
+                                    <div class="block-element">
+                                        <h5>Title</h5>
+                                        <input id="title" type="text" class="form-control" style="width:400px;">
+                                    </div>
+                                    <!-- category -->
+                                    <div class="block-element">
+                                        <h5>Category</h5>
+                                        <select id="category" class="form-select">
+                                            <option>Marketing</option>
+                                            <option>Development</option>
+                                            <option>Engineering</option>
+                                            <option>Design</option>
+                                            <option>Product</option>
+                                            <option>Testing</option>
+                                            <option>Sale</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <!-- category -->
-                                <div class="block-element">
-                                    <h5>Category</h5>
-                                    <select id="category" class="form-select">
-                                        <option>Marketing</option>
-                                        <option>Development</option>
-                                        <option>Engineering</option>
-                                        <option>Design</option>
-                                        <option>Product</option>
-                                        <option>Testing</option>
-                                        <option>Sale</option>
-                                        <option>Other</option>
-                                    </select>
+                                <div class="block-row" style="display: flex; justify-content: space-evenly;">
+                                    <!-- due date -->
+                                    <div class="block-element">
+                                        <h5>Due Date</h5>
+                                        <input id="dueDate" type="date" class="form-control">
+                                    </div>
+                                    <!-- urgency -->
+                                    <div class="block-element">
+                                        <h5>Urgency</h5>
+                                        <select id="urgency" class="form-select">
+                                            <option value="1">Low</option>
+                                            <option value="2">Normal</option>
+                                            <option value="3">High</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div id="section-1" class="block d-flex"
-                                style="padding-left: 0px !important;justify-content: space-around;">
+                            <div id="section-1" class="block d-flex" style="align-items: center;">
                                 <!-- descrition -->
                                 <div class="block-element">
                                     <h5>Description</h5>
@@ -71,38 +88,15 @@
                                     <div class="d-flex" id="image-container"></div>
                                 </div>
                             </div>
-                            <div id="section-2" class="block">
-                                <!-- due date -->
-                                <div class="block-element">
-                                    <h5>Due Date</h5>
-                                    <input id="dueDate" type="date" class="form-control">
-                                </div>
-                                <!-- urgency -->
-                                <div class="block-element">
-                                    <h5>Urgency</h5>
-                                    <select id="urgency" class="form-select">
-                                        <option value="1">Low</option>
-                                        <option value="2">Normal</option>
-                                        <option value="3">High</option>
-                                    </select>
-                                </div>
-                                <!--buttons-->
-                                <div class="position-of-container">
-                                    <button onclick="createTask()" type="button" class="btn btn-primary">Create
-                                        Task</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="card-foooter">
 
                         <div class="buttons">
-                            <a href="addTask.html" class="mr-25">cancle</a>
-                            <span>|</span>
                             <button onclick="goBack()" class="foooter-btn">back</button>
                             <span>|</span>
-                            <button onclick="goFurther()" class="foooter-btn">go</button>
+                            <button id="create-task-btn" onclick="goFurther()" class="foooter-btn">go</button>
                         </div>
 
                     </div>

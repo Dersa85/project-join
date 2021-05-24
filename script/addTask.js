@@ -130,14 +130,19 @@ function removeAllUnderlinedProfiles() {
     }
 }
 
-let x = 0;
+let x = 0; // translateX(x) of the block-section
+let blocks = document.getElementsByClassName('block');
+let createTaskBtn = document.getElementById('create-task-btn');
 
 function goFurther() {
-    if (x > - 200) {
+    if (x > - 100) {
         x -= 100;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < blocks.length; i++) {
             translateX(i, x);
         }
+        let createTaskBtn = document.getElementById('create-task-btn');
+        createTaskBtn.innerHTML = 'create Task';
+        createTaskBtn.setAttribute('onclick', 'createTask()');
     } else {
         console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
     }
@@ -146,9 +151,13 @@ function goFurther() {
 function goBack() {
     if (x < 0) {
         x += 100;
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < blocks.length; i++) {
             translateX(i, x);
         }
+        let goFurtherBtn = document.getElementById('create-task-btn');
+        goFurtherBtn.innerHTML = 'go';
+        goFurtherBtn.setAttribute('onclick', 'goFurther()');
+        
     } else {
         console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
     }
