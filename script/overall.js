@@ -14,7 +14,7 @@ async function init(page = '') {
         showProfilePicInBlockElement();
     }
     else if (page == 'board') {
-        await updateHTML();
+        updateHTML();
     }
 }
 

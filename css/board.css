@@ -5,3 +5,12 @@
 .width-from-category{
     width: calc((100vw - 265px)/4);
 }
+
+.board-card {
+    border: 2px solid gray;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: lightgray;
+    width: 90%;
+    margin-top: 16px;
+}
