@@ -15,21 +15,24 @@ let tasks = [{
     'title': 'done',
     'category': 'done'
 }];
+
 let currentDraggedElement;
 
-async function loadTheArrayAfterConfirm(){
-    let ArrayForBoardCard = new Array();
-    ArrayForBoardCard = await backend.getItem('boarderTask');
-    console.log(ArrayForBoardCard);
-    for (let i = 0; i < ArrayForBoardCard.length; i++) {
-        const element = ArrayForBoardCard[i];
-        ArrayForBoardCard.push();
+
+
+async function updateHTML() {
+    let tasks = await backend.getItem('borderTasks');
+    console.log(tasks);
+    clearBoard();
+    
+    for (let i = 0; i < tasks.length; i++) {
+        let task = tasks[i];
+        let card = generateHTML(task, i);
+        document.getElementById(task['board-category']).innerHTML += card;
     }
-}
 
-function updateHTML() {
+    /*
     let categorysID = ['todo', 'progress', 'testing', 'done'];
-
     for (let x = 0; x < categorysID.length; x++) {
         const y = categorysID[x];
         document.getElementById(y).innerHTML = '';
@@ -38,9 +41,19 @@ function updateHTML() {
         let filteredArray = tasks.filter(t => t['category'] == `${y}`);
 
         for (let i = 0; i < filteredArray.length; i++) {
-            document.getElementById(y).innerHTML += generateTodoHTML(filteredArray[i]);
+            const element = filteredArray[i];
+            document.getElementById(y).innerHTML += generateTodoHTML(element);
         }
     }
+    */
+}
+
+function clearBoard() {
+    let categorysID = ['todo', 'progress', 'testing', 'done'];
+    categorysID.forEach(category => {
+        document.getElementById(category).innerHTML = '';
+        document.getElementById(category).classList.remove('drag-area-highlight');
+    });
 }
 
 function allowDrop(ev) {
@@ -64,11 +77,17 @@ function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
 
-function generateTodoHTML(element) {
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="card" style="width: 80%;margin-top: 25px;background-color: beige">
+function generateHTML(task, index) {
+    return `
+    <div class="board-card" draggable="true" ondragstart="startDragging(${index})">
+        <h6>${task['title']}</h6>
+    </div>`;
+    /*
+    return `<div draggable="true" ondragstart="startDragging(${index})" class="card" style="width: 80%;margin-top: 25px;background-color: beige">
                 <div class="card-body">
-                    <h6 class="card-title" style="font-size: 1.05rem;">${element['title']}</h6>
+                    <h6 class="card-title" style="font-size: 1.05rem;">${task['title']}</h6>
                     <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
                 </div>
             </div>`;
+    */
 }
