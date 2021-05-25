@@ -15,10 +15,17 @@ let tasks = [{
     'title': 'done',
     'category': 'done'
 }];
-
 let currentDraggedElement;
 
-
+async function loadTheArrayAfterConfirm(){
+    let ArrayForBoardCard = new Array();
+    ArrayForBoardCard = await backend.getItem('boarderTask');
+    console.log(ArrayForBoardCard);
+    for (let i = 0; i < ArrayForBoardCard.length; i++) {
+        const element = ArrayForBoardCard[i];
+        ArrayForBoardCard.push();
+    }
+}
 
 function updateHTML() {
     let categorysID = ['todo', 'progress', 'testing', 'done'];
@@ -31,8 +38,7 @@ function updateHTML() {
         let filteredArray = tasks.filter(t => t['category'] == `${y}`);
 
         for (let i = 0; i < filteredArray.length; i++) {
-            const element = filteredArray[i];
-            document.getElementById(y).innerHTML += generateTodoHTML(element);
+            document.getElementById(y).innerHTML += generateTodoHTML(filteredArray[i]);
         }
     }
 }
