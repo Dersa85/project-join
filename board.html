@@ -25,12 +25,12 @@
 
         <div id="responsive-navbar" class="d-none"></div>
 
-        <div class="vh-100" style="align-items: center; display: flex;">
+        <div class="vh-100" style="align-items: center; display: flex; margin-left: -60px;">
 
             <div class="d-flex h-75">
 
                 <!-- ToDo bar-->
-                <div class="ms-4" style="width: calc((100vw - 330px)/4);display: flex;flex-direction: column;">
+                <div class="ms-4 width-from-category" style="display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">TO DO</h2>
                     <div id="todo" class="bg-main" ondrop="moveTo('todo')"
                         ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')"
@@ -39,7 +39,7 @@
                 </div>
 
                 <!-- Progress bar-->
-                <div class="ms-4" style="width: calc((100vw - 330px)/4);display: flex;flex-direction: column;">
+                <div class="ms-4 width-from-category" style="display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">PROGRESS</h2>
                     <div id="progress" class="bg-main" ondrop="moveTo('progress')"
                         ondragover="allowDrop(event); highlight('progress')" ondragleave="removeHighlight('progress')"
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- Testing bar-->
-                <div class="ms-4" style="width: calc((100vw - 330px)/4);display: flex;flex-direction: column;">
+                <div class="ms-4  width-from-category" style="display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">TESTING</h2>
                     <div id="testing" class="bg-main" ondrop="moveTo('testing')"
                         ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"
@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- Done bar-->
-                <div class="ms-4" style="width: calc((100vw - 330px)/4);display: flex;flex-direction: column;">
+                <div class="ms-4 width-from-category" style="display: flex;flex-direction: column;">
                     <h2 style="text-align: center;">DONE</h2>
                     <div id="done" class="bg-main" ondrop="moveTo('done')"
                         ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')"
