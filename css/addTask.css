@@ -127,9 +127,29 @@ h5 {
     #section-1 {
         flex-direction: column-reverse;
     }
+    #section-1 .block-element {
+        margin-bottom: 0;
+    }
     #description {
         max-width: calc(0.85 * (100vw - 140px)) !important;
         height: 250px;
+    }
+}
+
+@media (max-width: 1000px) and (max-height: 750px) {
+    #description {
+        max-width: calc(0.45 * (100vw - 140px)) !important;
+        height: 200px;
+    }
+    #title, #dueDate, .form-select {
+        width: 250px !important;
+    }
+    #section-0, #section-1 {
+        flex-direction: unset !important;
+    }
+    .profile-picture {
+        width: 45px;
+        height: 45px;
     }
 }
 
@@ -149,6 +169,13 @@ h5 {
     #description {
         max-width: calc(0.85 * 100vw) !important;
         height: 250px;
+    }
+}
+
+@media (max-width: 700px) and (max-height: 750px) {
+    #description {
+        max-width: calc(0.45 * 100vw) !important;
+        height: 120px;
     }
 }
 
