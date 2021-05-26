@@ -29,7 +29,7 @@
 
             <div class="d-flex h-75 col-mobile">
 
-                <div class="row-mobile row">
+                <div class="row-mobile flex-row">
                     <!-- ToDo bar-->
                     <div class="ms-4 width-from-category reset-margin-mobile"
                         style="display: flex;flex-direction: column;">
@@ -41,8 +41,7 @@
                     </div>
 
                     <!-- Progress bar-->
-                    <div class="ms-4 width-from-category reset-margin-mobile"
-                        style="display: flex;flex-direction: column;">
+                    <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">PROGRESS</h2>
                         <div id="progress" class="bg-main" ondrop="moveTo('progress')"
                             ondragover="allowDrop(event); highlight('progress')"
@@ -51,10 +50,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row-mobile row">
+                <div class="row-mobile flex-row">
                     <!-- Testing bar-->
-                    <div class="ms-4  width-from-category reset-margin-mobile"
-                        style="display: flex;flex-direction: column;">
+                    <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">TESTING</h2>
                         <div id="testing" class="bg-main" ondrop="moveTo('testing')"
                             ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"
@@ -63,8 +61,7 @@
                     </div>
 
                     <!-- Done bar-->
-                    <div class="ms-4 width-from-category reset-margin-mobile"
-                        style="display: flex;flex-direction: column;">
+                    <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">DONE</h2>
                         <div id="done" class="bg-main" ondrop="moveTo('done')"
                             ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')"
