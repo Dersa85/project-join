@@ -3,9 +3,6 @@
 }
 
 .width-from-category{
-<<<<<<< HEAD
-    width: calc((100vw - 264px)/4);
-=======
     width: calc((100vw - 265px)/4);
 }
 
@@ -16,5 +13,4 @@
     background-color: lightgray;
     width: 90%;
     margin-top: 16px;
->>>>>>> 7dc46e264d5a48d2450b7c87e30c69348b642e97
 }
