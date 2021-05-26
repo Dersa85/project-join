@@ -72,6 +72,13 @@ function generateInfobox(title, description, p1,p2,p3) {
             <img alt="${p3}"></img>
         </div>
         <p>${description}</p>
+        <h4>Comments</h4>
+        <p>dsajfkdsajdkflskl</p>
+        <p>dsajfkdsajdkflskl</p>
+        <p>dsajfkdsajdkflskl</p>
+        <h4>add Comment</h4>
+        <input placeholder="Write a comment" type="text">
+        <button>Save</button>
     `;
 }
 

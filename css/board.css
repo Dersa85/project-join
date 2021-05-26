@@ -20,6 +20,7 @@
     background-color: lightgray;
     width: 90%;
     margin: 8px;
+    cursor: pointer;
 }
 
 .absolute-center {
