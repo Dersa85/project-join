@@ -122,6 +122,34 @@ body {
     cursor: pointer;
 }
 
+.info-box-bg-warning {
+    background-color: rgb(252, 104, 46) !important;
+}
+
+.info-box-bg-success {
+    background-color: rgb(70, 182, 18) !important;
+}
+
+.warning-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: lightgray;
+    top: 16px;
+    left: 50%;
+    padding: 12px;
+    border-radius: 8px;
+    animation: warning-fade 3s ease-in-out forwards;
+}
+
+@keyframes warning-fade {
+    0% {filter: opacity(0);}
+    15% {filter: opacity(1);}
+    60% {filter: opacity(1);}
+    100% {filter: opacity(0);}
+}
+
 @media (max-width : 700px) {
     #nav-bar {
         display: none;

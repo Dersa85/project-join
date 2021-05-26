@@ -104,3 +104,41 @@ function closeNav() {
 function dummy(event) {
     event.stopPropagation();
 }
+
+
+function showInfoBox(msg, type) {
+    hiddenOldWarnings();
+    let titel = getTitel(type);
+    let box = createBox(titel, msg, `info-box-bg-${type}`);
+    document.body.appendChild(box);
+    setTimeout(() => {
+        document.body.removeChild(box);
+    }, 3000);
+}
+
+function hiddenOldWarnings() {
+    let oldWarnings = document.getElementsByClassName('warning-box') || [];
+    for (let i = 0; i < oldWarnings.length; i++) {
+        oldWarnings[i].classList.add('d-none');
+    }
+}
+
+function createBox(titel, msg, bgColor) {
+    let box = document.createElement('div');
+    box.classList.add('warning-box');
+    box.classList.add(bgColor);
+    box.innerHTML = `
+        <h2 style="border-bottom: 1px solid black;">${titel}</h2>
+        <p>${msg}</p>
+    `;
+    return box;
+}
+
+function getTitel(boxType) {
+    if (boxType == 'warning') {
+        return 'Warning !!!';
+    } else if (boxType == 'success') {
+        return 'Success';
+    }
+    return 'Information';
+}

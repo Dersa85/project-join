@@ -31,10 +31,12 @@ async function login() {
     
     if (!user) {
         console.log('Loggin benutzername oder passwort ist falsch');
+        showInfoBox('Wrong User or password', 'warning');
         return;
     }
+    showInfoBox(`Login as <b>${inputName.value}</b>`, 'success');
     console.log('Anmelden erfolgreich');
-    localStorage.setItem('loginname', user['name']);
+    sessionStorage.setItem('loginname', user['name']);
     
     // redirection with:
     // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
@@ -49,11 +51,13 @@ async function newAccount() {
 
     if (user) { // check if exist
         console.log('User exist, rename please');
+        showInfoBox('User exist, please rename!', 'warning');
         return;
     }
     console.log('new account with name ' + inputName.value);
     let member = createAccountJson(inputName, inputPassword);
     addObjectToDatabase('members', member);
+    login();
 
 
     // redirection with:
