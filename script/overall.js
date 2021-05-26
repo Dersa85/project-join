@@ -10,9 +10,11 @@ async function init(page = '') {
     if (page == 'backlog') {
         await refreshBacklog();
     }
-
     else if (page == 'add-task') {
         showProfilePicInBlockElement();
+    }
+    else if (page == 'board') {
+        updateHTML();
     }
 }
 
