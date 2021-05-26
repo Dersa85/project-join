@@ -62,20 +62,20 @@ function generateHTML(task, index) {
 
 function generateInfobox(task) {
     console.log (task);
-    let title = task['title'];
+   /* let title = task['title'];
     let description = task['description']; 
     let createtAt = task['createdAt'];
     let assignedTo = task['assignedTo'];
     let boardCategory = task['board-category'];
     let category = task['category'];
     let dueDate = task['dueDate'];
-    let urgency = task['urgency'];
+    let urgency = task['urgency'];*/
 
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
         <button onclick="closeInfobox()" class="close-button btn">&#9587;</button>
-        <h2 style="border-bottom: 1px solid black; padding: 16px;">${title}</h2>
+        <h2 style="border-bottom: 1px solid black; padding: 16px;">${task['title']}</h2>
         <div>
             <img alt="f"></img>
             <img alt="f"></img>
