@@ -107,7 +107,7 @@ function dummy(event) {
 
 
 function showInfoBox(msg, type) {
-    hiddenOldWarnings();
+    hiddenOldInformationBoxes();
     let titel = getTitel(type);
     let box = createBox(titel, msg, `info-box-bg-${type}`);
     document.body.appendChild(box);
@@ -116,7 +116,7 @@ function showInfoBox(msg, type) {
     }, 3000);
 }
 
-function hiddenOldWarnings() {
+function hiddenOldInformationBoxes() {
     let oldWarnings = document.getElementsByClassName('warning-box') || [];
     for (let i = 0; i < oldWarnings.length; i++) {
         oldWarnings[i].classList.add('d-none');
