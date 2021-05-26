@@ -6,6 +6,7 @@ async function updateHTML(tasks = null) {
         tasks = await backend.getItem('borderTasks') || [];
     }
     clearBoard();
+    console.log(tasks);
     
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
@@ -54,6 +55,7 @@ function generateHTML(task, index) {
     return `
     <div class="board-card" draggable="true" ondragstart="startDragging(${index})">
         <h6>${task['title']}</h6>
+        <div class="card-pp-container"></div>
     </div>
     `;
     /*
