@@ -31,7 +31,7 @@ function startDragging(id) {
 }
 
 async function moveTo(category) {
-    if (currentDraggedElement) {
+    if (currentDraggedElement != null) {
         let tasks = await backend.getItem('borderTasks');
         tasks[currentDraggedElement]['board-category'] = category;
         await backend.setItem('borderTasks', tasks);
@@ -41,7 +41,7 @@ async function moveTo(category) {
 }
 
 function highlight(id) {
-    if (currentDraggedElement) {
+    if (currentDraggedElement != null) {
         document.getElementById(id).classList.add('drag-area-highlight');
     }
 }
