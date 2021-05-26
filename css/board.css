@@ -4,6 +4,7 @@
 
 .width-from-category{
     width: calc((100vw - 265px)/4);
+    word-wrap: break-word;
 }
 
 .board-card {
@@ -17,6 +18,7 @@
 
 @media (max-width: 700px) {
     .col-mobile{
+        display: flex;
         flex-direction: column;
     }
     .row-mobile{
@@ -31,5 +33,6 @@
     .width-from-category{
         width: 48vw !important;
         margin: 1vw !important;
+        word-wrap: break-word;
     }
 }
