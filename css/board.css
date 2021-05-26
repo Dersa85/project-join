@@ -22,6 +22,31 @@
     margin: 8px;
 }
 
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.infobox{
+    width: 70vw;
+    height: 80vh;
+    background-color: rgb(192, 192, 192);
+    border: 1px solid grey;
+    z-index: 1000;
+}
+
+.close-button{
+    position: fixed;
+    top: 8px;
+    right: 8px;
+}
+
+.close-button:hover{
+    font-size: 1.3em;
+}
+
 @media (max-width: 700px) {
     .col-mobile {
         display: flex;

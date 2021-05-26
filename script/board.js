@@ -53,17 +53,30 @@ function removeHighlight(id) {
 
 function generateHTML(task, index) {
     return `
-    <div class="board-card" draggable="true" ondragstart="startDragging(${index})">
+    <div class="board-card" onclick="generateInfobox()" draggable="true" ondragstart="startDragging(${index})">
         <h6>${task['title']}</h6>
         <div class="card-pp-container"></div>
     </div>
     `;
-    /*
-    return `<div draggable="true" ondragstart="startDragging(${index})" class="card" style="width: 80%;margin-top: 25px;background-color: beige">
-                <div class="card-body">
-                    <h6 class="card-title" style="font-size: 1.05rem;">${task['title']}</h6>
-                    <p class="card-text" style="font-size: 0.9rem;">Here can be icons</p>
-                </div>
-            </div>`;
-    */
+}
+
+function generateInfobox(title, description, p1,p2,p3) {
+    let infobox = document.getElementById('infobox');
+    infobox.classList.remove('d-none');
+    infobox.innerHTML = `
+        <button onclick="closeInfobox()" class="close-button btn">&#9587;</button>
+        <h2 style="border-bottom: 1px solid black; padding: 16px;">${title}</h2>
+        <div>
+            <img alt="${p1}"></img>
+            <img alt="${p2}"></img>
+            <img alt="${p3}"></img>
+        </div>
+        <p>${description}</p>
+    `;
+}
+
+function closeInfobox(){
+    let infobox = document.getElementById('infobox');
+    infobox.classList.add('d-none');
+    infobox.innerHTML='';
 }
