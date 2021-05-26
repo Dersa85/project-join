@@ -33,22 +33,22 @@
 
                 <div class="row-mobile flex-row">
                     <!-- ToDo bar-->
-                    <div class="ms-4 width-from-category reset-margin-mobile"
+                    <div class="width-from-category reset-margin-mobile"
                         style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">TO DO</h2>
-                        <div id="todo" class="bg-main" ondrop="moveTo('todo')"
+                        <div id="todo" class="bg-main heigt-min-max" ondrop="moveTo('todo')"
                             ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; min-height: 50px;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                         </div>
                     </div>
 
                     <!-- Progress bar-->
                     <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">PROGRESS</h2>
-                        <div id="progress" class="bg-main" ondrop="moveTo('progress')"
+                        <div id="progress" class="bg-main heigt-min-max" ondrop="moveTo('progress')"
                             ondragover="allowDrop(event); highlight('progress')"
                             ondragleave="removeHighlight('progress')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; min-height: 50px;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                         </div>
                     </div>
                 </div>
@@ -56,18 +56,18 @@
                     <!-- Testing bar-->
                     <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">TESTING</h2>
-                        <div id="testing" class="bg-main" ondrop="moveTo('testing')"
+                        <div id="testing" class="bg-main heigt-min-max" ondrop="moveTo('testing')"
                             ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; min-height: 50px;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                         </div>
                     </div>
 
                     <!-- Done bar-->
                     <div class="width-from-category reset-margin-mobile" style="display: flex;flex-direction: column;">
                         <h2 style="text-align: center;">DONE</h2>
-                        <div id="done" class="bg-main" ondrop="moveTo('done')"
+                        <div id="done" class="bg-main heigt-min-max" ondrop="moveTo('done')"
                             ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; min-height: 50px;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
                         </div>
                     </div>
                 </div>

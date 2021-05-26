@@ -8,7 +8,12 @@
     padding: 1vw;
 }
 
-.flex-row{
+h2 {
+    font-size: calc(10px + 1vw);
+    font-weight: bold;
+}
+
+.flex-row {
     display: flex;
     flex-direction: row;
 }
@@ -27,24 +32,24 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.infobox{
+.infobox {
     width: 70vw;
     height: 80vh;
     background-color: rgb(192, 192, 192);
     border: 1px solid grey;
-    z-index: 1000;
+    padding: 1em;
 }
 
-.close-button{
+.close-button {
     position: fixed;
     top: 8px;
     right: 8px;
 }
 
-.close-button:hover{
+.close-button:hover {
     font-size: 1.3em;
 }
 
@@ -64,11 +69,15 @@
         width: 48vw !important;
         margin-left: 1vw !important;
         padding: 0px !important;
-        font-size: calc(6px + 1.5vw);
+        font-size: calc(6px + 1.5vw) !important;
     }
     h2 {
-        font-size: calc(12px + 1.5vw);
-        font-weight: bold;
-        margin-top: 1em;
+        font-size: calc(12px + 1.5vw) !important;
+        font-weight: bold !important;
+        margin-top: 1em !important;
+    }
+    .heigt-min-max {
+        min-height: 27vh;
+        max-height: 27vh;
     }
 }
