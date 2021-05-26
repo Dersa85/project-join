@@ -60,8 +60,7 @@ function generateHTML(task, index) {
     `;
 }
 
-function generateInfobox(task) {
-    console.log (task);
+function generateInfobox(task, index){
    /* let title = task['title'];
     let description = task['description']; 
     let createtAt = task['createdAt'];
@@ -81,7 +80,7 @@ function generateInfobox(task) {
             <img alt="f"></img>
             <img alt="f"></img>
         </div>
-        <p>${description}</p>
+        <p>${task['description']}</p>
         <h4>Comments</h4>
         <p>dsajfkdsajdkflskl</p>
         <p>dsajfkdsajdkflskl</p>
