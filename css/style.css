@@ -130,6 +130,14 @@ body {
     background-color: rgb(70, 182, 18) !important;
 }
 
+.accordion-img {
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 16px;
+}
+
 .warning-box {
     display: flex;
     align-items: center;

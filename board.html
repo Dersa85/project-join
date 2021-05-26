@@ -25,7 +25,42 @@
 
         <div id="responsive-navbar" class="d-none"></div>
 
-        <div id="infobox" class="d-none absolute-center infobox"></div>
+        <div id="infobox" class="absolute-center infobox border-small">
+            <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
+                <h2 style="padding: 16px;">TITEL</h2>
+                <div>
+                    <button class="btn btn-primary">Delete</button>
+                    <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <h5 class="color-titel">Assignet to:</h5>
+                <h5>Days left: X</h5>
+            </div>
+            
+            <div class="info-box-margin-left">
+                <img class="accordion-img" src="./img/pp.jpg"></img>
+                <img class="accordion-img" src="./img/pp.jpg"></img>
+                <img class="accordion-img" src="./img/pp.jpg"></img>
+            </div>
+            
+            <h5 class="color-titel" style="margin-top: 1em;">Description:</h5>
+            <p class="info-box-margin-left detail-description-field">Description Field</p>
+            
+            <h5 class="color-titel">Comments:</h5>
+            <div class="d-flex info-box-margin-left align-items-center mb-3 detail-comments-field">
+                <h6 style="margin-bottom: 0;"><b>Write comment:</b></h6>
+                <input style="margin-left: 16px" type="text">
+            </div>
+            
+            <div class="info-box-margin-left">
+                <p><b>Alex:</b> Eine Nachricht von mir</p>
+                <p><b>Alex:</b> Eine Nachricht von dir</p>
+                <p><b>Alex:</b> Eine Nachricht von euch</p>
+            </div>
+        
+        </div>
 
         <div class="vh-100 reset-margin-mobile" style="align-items: center; display: flex; margin-left: -60px;">
 

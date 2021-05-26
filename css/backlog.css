@@ -85,13 +85,7 @@
 }
 
 
-.accordion-img {
-    height: 32px;
-    width: 32px;
-    object-fit: cover;
-    border-radius: 100%;
-    margin-right: 16px;
-}
+
 
 .item-detail {
     display: flex;

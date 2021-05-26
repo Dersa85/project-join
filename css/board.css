@@ -44,6 +44,7 @@ h3 {
 .infobox {
     width: 70vw;
     height: 80vh;
+    max-width: 500px;
     background-color: rgb(192, 192, 192);
     border: 1px solid grey;
     padding: 1em;
@@ -57,6 +58,16 @@ h3 {
 
 .close-button:hover {
     font-size: 1.3em;
+}
+
+.info-box-margin-left {
+    margin-left: 16px;
+}
+
+.detail-description-field {
+    background-color: lightgray;
+    padding: 8px;
+    min-height: 150px;
 }
 
 @media (max-width: 700px) {
@@ -85,5 +96,11 @@ h3 {
     .heigt-min-max {
         min-height: 30vh;
         max-height: 30vh;
+    }
+    .detail-comments-field {
+        flex-direction: column;
+    }
+    .info-box-margin-left {
+        margin-left: 0;
     }
 }
