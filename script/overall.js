@@ -80,7 +80,7 @@ function addBackgroundColor() {
 
 function generateResponsiveNavbar() {
     document.getElementById('responsive-navbar').innerHTML = `
-        <div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="sidenav" "dummy(event)">
             <a class="closebtn" onclick="closeNav()">&times;</a>
             <a href="index.html">Login</a>
             <a href="board.html">Board</a>

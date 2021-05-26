@@ -12,5 +12,24 @@
     padding: 8px;
     background-color: lightgray;
     width: 90%;
-    margin-top: 16px;
+    margin: 8px;
+}
+
+@media (max-width: 700px) {
+    .col-mobile{
+        flex-direction: column;
+    }
+    .row-mobile{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .reset-margin-mobile{
+        margin: 0 !important;
+    }
+
+    .width-from-category{
+        width: 48vw !important;
+        margin: 1vw !important;
+    }
 }
