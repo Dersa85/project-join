@@ -75,13 +75,13 @@ function generateInfobox(task) {
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
         <button onclick="closeInfobox()" class="close-button btn">&#9587;</button>
-        <h2 style="border-bottom: 1px solid black; padding: 16px;">${task['title']}</h2>
+        <h2 style="border-bottom: 1px solid black; padding: 16px;">${title}</h2>
         <div>
             <img alt="f"></img>
             <img alt="f"></img>
             <img alt="f"></img>
         </div>
-        <p>${task['description']}</p>
+        <p>${description}</p>
         <h4>Comments</h4>
         <p>dsajfkdsajdkflskl</p>
         <p>dsajfkdsajdkflskl</p>
