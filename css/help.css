@@ -1,0 +1,25 @@
+.page{
+    width: calc(100vw - 260px);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    padding-bottom: 1em;
+}
+
+.video-container{
+    background-color: gray;
+    height: 70vh;
+    width: 100%;
+    clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+}
+
+@media (max-width : 700px){
+    .page{
+        width: 100vw !important;
+    }
+}
