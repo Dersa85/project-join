@@ -71,7 +71,7 @@ async function generateInfobox(index) {
     <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
         <h2 style="padding: 16px;">${task['title']}</h2>
         <div>
-            <button class="btn btn-primary">Delete</button>
+            <button onclick="deleteTask(${index})" class="btn btn-primary">Delete</button>
             <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
         </div>
     </div>
@@ -104,6 +104,16 @@ async function generateInfobox(index) {
         </div>
     </div>
     `;
+}
+
+async function deleteTask(index){
+    let tasks = await backend.getItem('borderTasks') || [];
+    let task = await tasks[index];
+    tasks = await tasks.splice(index,1);
+    await backend.setItem('borderTasks') || [];
+    updateHTML();
+    closeInfobox();
+    console.log(tasks);
 }
 
 function closeInfobox() {
