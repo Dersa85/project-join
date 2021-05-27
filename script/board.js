@@ -106,11 +106,11 @@ async function generateInfobox(index) {
     `;
 }
 
-async function deleteTask(index){
+async function deleteTask(index) {
     let tasks = await backend.getItem('borderTasks') || [];
     let task = await tasks[index];
-    tasks = await tasks.splice(index,1);
-    await backend.setItem('borderTasks') || [];
+    tasks = await tasks.splice(index, 1);
+    await backend.setItem('borderTasks');
     updateHTML();
     closeInfobox();
     console.log(tasks);
