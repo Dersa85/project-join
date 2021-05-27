@@ -60,34 +60,45 @@ function generateHTML(task, index) {
     `;
 }
 
-function generateInfobox(task, index){
-   /* let title = task['title'];
-    let description = task['description']; 
-    let createtAt = task['createdAt'];
-    let assignedTo = task['assignedTo'];
-    let boardCategory = task['board-category'];
-    let category = task['category'];
-    let dueDate = task['dueDate'];
-    let urgency = task['urgency'];*/
-
+function generateInfobox(index){
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
-        <button onclick="closeInfobox()" class="close-button btn">&#9587;</button>
-        <h2 style="border-bottom: 1px solid black; padding: 16px;">${task['title']}</h2>
+    <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
+        <h2 style="padding: 16px;">TITEL</h2>
         <div>
-            <img alt="f"></img>
-            <img alt="f"></img>
-            <img alt="f"></img>
+            <button class="btn btn-primary">Delete</button>
+            <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
         </div>
-        <p>${task['description']}</p>
-        <h4>Comments</h4>
-        <p>dsajfkdsajdkflskl</p>
-        <p>dsajfkdsajdkflskl</p>
-        <p>dsajfkdsajdkflskl</p>
-        <h4>add Comment</h4>
-        <input placeholder="Write a comment" type="text">
-        <button>Save</button>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <h5 class="color-titel">Assignet to:</h5>
+        <h5>Days left: X</h5>
+    </div>
+
+    <div class="info-box-margin-left">
+        <img class="accordion-img" src="./img/pp.jpg"></img>
+        <img class="accordion-img" src="./img/pp.jpg"></img>
+        <img class="accordion-img" src="./img/pp.jpg"></img>
+    </div>
+
+    <div class="overflow">
+        <h5 class="color-titel" style="margin-top: 1em;">Description:</h5>
+        <p class="info-box-margin-left detail-description-field">Description Field</p>
+
+        <h5 class="color-titel">Comments:</h5>
+        <div class="d-flex info-box-margin-left align-items-center mb-3 detail-comments-field">
+            <h6 style="margin-bottom: 0;"><b>Write comment:</b></h6>
+            <input style="margin-left: 16px" type="text">
+        </div>
+
+        <div class="info-box-margin-left">
+            <p><b>Alex:</b> Eine Nachricht von mir</p>
+            <p><b>Alex:</b> Eine Nachricht von dir</p>
+            <p><b>Alex:</b> Eine Nachricht von euch</p>
+        </div>
+    </div>
     `;
 }
 

@@ -34,11 +34,11 @@ h3 {
     margin: 8px;
     cursor: pointer;
 }
-/* 
-.card-highlight{
-    box-shadow: 20px 20px 5px 0px rgba(0,0,0,0.75);
-    transform: rotate(2deg) scale(1.1) ;
-} */
+
+.overflow{
+    overflow-y: auto;
+    max-height: 50vh !important;
+}
 
 .absolute-center {
     position: absolute;
@@ -48,7 +48,7 @@ h3 {
 }
 
 .infobox {
-    width: 70vw;
+    width: 90vw;
     height: 80vh;
     max-width: 500px;
     background-color: rgb(192, 192, 192);
