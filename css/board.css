@@ -54,6 +54,7 @@ h3 {
     background-color: rgb(192, 192, 192);
     border: 1px solid grey;
     padding: 1em;
+    overflow: hidden;
 }
 
 .close-button {
@@ -112,5 +113,6 @@ h3 {
     }
     .info-box-margin-left {
         margin-left: 0;
+        padding-bottom: 1em;
     }
 }

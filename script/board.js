@@ -7,7 +7,7 @@ async function updateHTML(tasks = null) {
     }
     clearBoard();
     console.log(tasks);
-    
+
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let card = generateHTML(task, i);
@@ -60,12 +60,16 @@ function generateHTML(task, index) {
     `;
 }
 
-function generateInfobox(index){
+async function generateInfobox(index) {
+    let tasks = await backend.getItem('borderTasks') || [];
+    let task = await tasks[index];
+    console.log('####', task);
+
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
     <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
-        <h2 style="padding: 16px;">TITEL</h2>
+        <h2 style="padding: 16px;">${task['title']}</h2>
         <div>
             <button class="btn btn-primary">Delete</button>
             <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
@@ -85,12 +89,12 @@ function generateInfobox(index){
 
     <div class="overflow">
         <h5 class="color-titel" style="margin-top: 1em;">Description:</h5>
-        <p class="info-box-margin-left detail-description-field">Description Field</p>
+        <p class="info-box-margin-left detail-description-field">${task['description']}</p>
 
         <h5 class="color-titel">Comments:</h5>
         <div class="d-flex info-box-margin-left align-items-center mb-3 detail-comments-field">
             <h6 style="margin-bottom: 0;"><b>Write comment:</b></h6>
-            <input style="margin-left: 16px" type="text">
+            <input style="margin-left: 16px" type="text"><button class="btn btn-primary">Add</button>
         </div>
 
         <div class="info-box-margin-left">
@@ -102,8 +106,8 @@ function generateInfobox(index){
     `;
 }
 
-function closeInfobox(){
+function closeInfobox() {
     let infobox = document.getElementById('infobox');
     infobox.classList.add('d-none');
-    infobox.innerHTML='';
+    infobox.innerHTML = '';
 }
