@@ -142,3 +142,12 @@ function getTitel(boxType) {
     }
     return 'Information';
 }
+
+async function getMemberImgPath(name) {
+    let members = await backend.getItem('members') || [];
+    for (let i = 0; i < members.length; i++) {
+        if (members[i]['name'] == name) {
+            return members[i]['picturePath'];
+        }
+    }
+}

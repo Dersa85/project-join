@@ -102,15 +102,18 @@ async function getAssignedImgs(names) {
     }
     let returnContent = '';
     let members = await backend.getItem('members');
-    names.forEach(name => {
-        members.forEach(member => {
-            if (member['name'] == name) {
-                returnContent += `<img class='accordion-img' src='${member['picturePath']}'>`
-            }
-        })
-    });
+    for (let i = 0; i < 3; i++) {
+        if (names.length > i) {
+            let path = await getMemberImgPath(names[i]);
+            returnContent += `<img class='accordion-img' src='${path}'>`;
+        } else {
+            returnContent += `<img class='accordion-img' src='${'img/empty.png'}'>`;
+        }
+    }
     return returnContent;
 }
+
+
 
 async function acceptTask(id) {
     let transferTask = await extractFromBacklogTask(id);
