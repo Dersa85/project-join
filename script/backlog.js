@@ -101,7 +101,6 @@ async function getAssignedImgs(names) {
         return '';
     }
     let returnContent = '';
-    let members = await backend.getItem('members');
     for (let i = 0; i < 3; i++) {
         if (names.length > i) {
             let path = await getMemberImgPath(names[i]);
@@ -112,8 +111,6 @@ async function getAssignedImgs(names) {
     }
     return returnContent;
 }
-
-
 
 async function acceptTask(id) {
     let transferTask = await extractFromBacklogTask(id);

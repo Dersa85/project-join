@@ -60,10 +60,21 @@ function generateHTML(task, index) {
     `;
 }
 
+function getDaysLeft(dueDate) {
+    let date = new Date(dueDate);
+    let differenceDate = date - Date.now();
+    let dayfactor = 1000*3600*24;
+
+    return Math.floor(differenceDate/dayfactor);
+}
+
 async function generateInfobox(index) {
     let tasks = await backend.getItem('borderTasks') || [];
     let task = await tasks[index];
 
+    let daysLeft = getDaysLeft(task['dueDate'])
+    
+    
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
@@ -77,13 +88,11 @@ async function generateInfobox(index) {
 
     <div class="d-flex justify-content-between">
         <h5 class="color-titel">Assignet to:</h5>
-        <h5>Days left: X</h5>
+        ${createDaysParagraph(daysLeft)}
     </div>
 
-    <div class="info-box-margin-left">
-        <img class="accordion-img" src="./img/pp.jpg"></img>
-        <img class="accordion-img" src="./img/pp.jpg"></img>
-        <img class="accordion-img" src="./img/pp.jpg"></img>
+    <div id='images' class="info-box-margin-left">
+        ${await getAssignedToImages(task['assignedTo'])}
     </div>
 
     <div class="overflow">
@@ -93,16 +102,54 @@ async function generateInfobox(index) {
         <h5 class="color-titel">Comments:</h5>
         <div class="d-flex info-box-margin-left align-items-center mb-3 detail-comments-field">
             <h6 style="margin-bottom: 0;"><b>Write comment:</b></h6>
-            <input style="margin-left: 16px" type="text"><button class="btn btn-primary">Add</button>
+            <input id="comments-input" style="margin-left: 16px; margin-right: 16px;" type="text"><button onclick="addNewComments(${index})" class="btn btn-primary">Add</button>
         </div>
 
-        <div class="info-box-margin-left">
-            <p><b>Alex:</b> Eine Nachricht von mir</p>
-            <p><b>Alex:</b> Eine Nachricht von dir</p>
-            <p><b>Alex:</b> Eine Nachricht von euch</p>
+        <div class="info-box-margin-left detail-description-field">
+            ${getCommentsParagraphs(task['comments'] || [])}
         </div>
     </div>
     `;
+}
+
+
+function getCommentsParagraphs(comments) {
+    let template = '';
+    comments.forEach(comment => {
+        template += `<p style='word-break: break-word;'>${comment}</p>`
+    });
+    return template;
+}
+
+
+async function addNewComments(index) {
+    let user = sessionStorage.getItem('loginname') || '&ltanonym&gt'; //b&gt;&lt;/b
+    console.log(user);
+    let newComments = document.getElementById('comments-input').value;
+    let tasks = await backend.getItem('borderTasks');
+    let allComments = tasks[index]['comments'] || [];
+    allComments.push(`<b>${user}: </b>${newComments}`);
+    tasks[index]['comments'] = allComments;
+    await backend.setItem('borderTasks', tasks);
+    generateInfobox(index);
+
+}
+
+function createDaysParagraph(days) {
+    if (days >= 0) {
+        return `<h5>Days left: ${days}</h5>`;
+    } else {
+        return `<h5>Days overdue: ${days*-1}</h5>`;
+    }
+}
+
+async function getAssignedToImages(names) {
+    let imgTemplate = '';
+    for (let i = 0; i < names.length; i++) {
+        let path = await getMemberImgPath(names[i]);
+        imgTemplate += `<img class="accordion-img" src="${path}"></img>`;
+    }
+    return imgTemplate;
 }
 
 async function deleteTask(index) {
