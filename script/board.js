@@ -63,7 +63,6 @@ function generateHTML(task, index) {
 async function generateInfobox(index) {
     let tasks = await backend.getItem('borderTasks') || [];
     let task = await tasks[index];
-    console.log('####', task);
 
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
@@ -109,11 +108,10 @@ async function generateInfobox(index) {
 async function deleteTask(index) {
     let tasks = await backend.getItem('borderTasks') || [];
     let task = await tasks[index];
-    tasks = await tasks.splice(index, 1);
-    tasks = await backend.setItem('borderTasks');
-    updateHTML();
+    tasks.splice(index, 1);
+    await backend.setItem('borderTasks',tasks);
+    updateHTML(tasks);
     closeInfobox();
-    console.log(tasks);
 }
 
 function closeInfobox() {
