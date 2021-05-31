@@ -112,6 +112,9 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidenav a {

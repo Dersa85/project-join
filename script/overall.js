@@ -57,11 +57,11 @@ function addToInnerHtml() {
         <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
         <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
     </div>
-    ${addUserInNavbar()}
+    ${addUsernameInNavbar()}
     `;
 }
 
-function addUserInNavbar() {
+function addUsernameInNavbar() {
     if (getLoggedUsername()) {
         return `
             <div style="width: 100%;">
@@ -95,12 +95,17 @@ function addBackgroundColor() {
 function generateResponsiveNavbar() {
     document.getElementById('responsive-navbar').innerHTML = `
         <div id="mySidenav" class="sidenav">
-            <a class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Login</a>
-            <a href="board.html">Board</a>
-            <a href="backlog.html">Backlog</a>
-            <a href="addTask.html">Add Task</a>
-            <a href="help.html">Help</a>
+            <div>
+                <a class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="index.html">Login</a>
+                <a href="board.html">Board</a>
+                <a href="backlog.html">Backlog</a>
+                <a href="addTask.html">Add Task</a>
+                <a href="help.html">Help</a>
+            </div>
+
+            ${addUsernameInNavbar()}
+
         </div>
 
         <span style="font-size:30px;cursor:pointer;margin-left:8px;" onclick="openNav();">&#9776;</span>
