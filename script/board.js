@@ -63,9 +63,9 @@ function generateHTML(task, index) {
 function getDaysLeft(dueDate) {
     let date = new Date(dueDate);
     let differenceDate = date - Date.now();
-    let dayfactor = 1000*3600*24;
+    let dayfactor = 1000 * 3600 * 24;
 
-    return Math.floor(differenceDate/dayfactor);
+    return Math.floor(differenceDate / dayfactor);
 }
 
 async function generateInfobox(index) {
@@ -73,17 +73,14 @@ async function generateInfobox(index) {
     let task = await tasks[index];
 
     let daysLeft = getDaysLeft(task['dueDate'])
-    
-    
+
+
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
     <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
         <h2 style="padding: 16px;">${task['title']}</h2>
-        <div>
-            <button onclick="deleteTask(${index})" class="btn btn-primary">Delete</button>
-            <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
-        </div>
+        <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
     </div>
 
     <div class="d-flex justify-content-between">
@@ -109,6 +106,7 @@ async function generateInfobox(index) {
             ${getCommentsParagraphs(task['comments'] || [])}
         </div>
     </div>
+    <button onclick="deleteTask(${index})" class="btn btn-primary">Delete</button>
     `;
 }
 
@@ -139,7 +137,7 @@ function createDaysParagraph(days) {
     if (days >= 0) {
         return `<h5>Days left: ${days}</h5>`;
     } else {
-        return `<h5>Days overdue: ${days*-1}</h5>`;
+        return `<h5>Days overdue: ${days * -1}</h5>`;
     }
 }
 
@@ -156,7 +154,7 @@ async function deleteTask(index) {
     let tasks = await backend.getItem('borderTasks') || [];
     let task = await tasks[index];
     tasks.splice(index, 1);
-    await backend.setItem('borderTasks',tasks);
+    await backend.setItem('borderTasks', tasks);
     updateHTML(tasks);
     closeInfobox();
 }
