@@ -130,7 +130,6 @@ async function addNewComments(index) {
     tasks[index]['comments'] = allComments;
     await backend.setItem('borderTasks', tasks);
     generateInfobox(index);
-
 }
 
 function createDaysParagraph(days) {

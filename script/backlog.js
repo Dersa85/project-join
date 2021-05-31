@@ -91,9 +91,13 @@ function millisecoundsToDateString(ms) {
 }
 
 async function deleteTask(index) {
-    extractFromBacklogTask(index);
-    closeConfirmTask();
-    refreshBacklog();
+    if (getLoggedUsername()) {
+        extractFromBacklogTask(index);
+        closeConfirmTask();
+        refreshBacklog();
+    } else {
+        showInfoBox('Please loggin first', 'warning')
+    }
 }
 
 async function getAssignedImgs(names) {
@@ -113,13 +117,18 @@ async function getAssignedImgs(names) {
 }
 
 async function acceptTask(id) {
-    let transferTask = await extractFromBacklogTask(id);
-    let borderTasks = await backend.getItem('borderTasks') || [];
-    transferTask['board-category'] = 'todo';
-    borderTasks.push(transferTask);
-    backend.setItem('borderTasks', borderTasks);
-    closeConfirmTask();
-    refreshBacklog();
+    if (getLoggedUsername()) {
+        let transferTask = await extractFromBacklogTask(id);
+        let borderTasks = await backend.getItem('borderTasks') || [];
+        transferTask['board-category'] = 'todo';
+        borderTasks.push(transferTask);
+        backend.setItem('borderTasks', borderTasks);
+        closeConfirmTask();
+        refreshBacklog();
+    } else {
+        showInfoBox('Please loggin first', 'warning')
+    }
+    
 }
 
 async function extractFromBacklogTask(id) {

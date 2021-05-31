@@ -50,13 +50,27 @@ function generateNavbar(page) {
 
 function addToInnerHtml() {
     document.getElementById('nav-bar').innerHTML = `
-    <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
-    <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
-    <a id="backlog" href="backlog.html" class="nav-element nav-element-lined">Backlog</a>
-    <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
-    <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
-    <img class="nav-profile-picture" src="./img/pp.jpg">
+    <div id="nav-bar-top">
+        <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
+        <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
+        <a id="backlog" href="backlog.html" class="nav-element nav-element-lined">Backlog</a>
+        <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
+        <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
+    </div>
+    ${addUsernameInNavbar()}
     `;
+}
+
+function addUsernameInNavbar() {
+    if (getLoggedUsername()) {
+        return `
+            <div style="width: 100%;">
+                <h6 style='color: white; text-align: center;'><b>${getLoggedUsername()}</b></h6>
+                <p style="color: white; text-align: center;">(<span class='log-out' onclick="logOut()">log out<span>)</p>
+            </div>
+        `;
+    }
+    return '';
 }
 
 function addTheBorder(page) {
@@ -81,12 +95,17 @@ function addBackgroundColor() {
 function generateResponsiveNavbar() {
     document.getElementById('responsive-navbar').innerHTML = `
         <div id="mySidenav" class="sidenav">
-            <a class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Login</a>
-            <a href="board.html">Board</a>
-            <a href="backlog.html">Backlog</a>
-            <a href="addTask.html">Add Task</a>
-            <a href="help.html">Help</a>
+            <div>
+                <a class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="index.html">Login</a>
+                <a href="board.html">Board</a>
+                <a href="backlog.html">Backlog</a>
+                <a href="addTask.html">Add Task</a>
+                <a href="help.html">Help</a>
+            </div>
+
+            ${addUsernameInNavbar()}
+
         </div>
 
         <span style="font-size:30px;cursor:pointer;margin-left:8px;" onclick="openNav();">&#9776;</span>
@@ -150,4 +169,13 @@ async function getMemberImgPath(name) {
             return members[i]['picturePath'];
         }
     }
+}
+
+function getLoggedUsername() {
+    return sessionStorage.getItem('loginname');
+}
+
+function logOut() {
+    sessionStorage.removeItem('loginname');
+    location.reload();
 }
