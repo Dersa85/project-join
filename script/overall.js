@@ -50,13 +50,27 @@ function generateNavbar(page) {
 
 function addToInnerHtml() {
     document.getElementById('nav-bar').innerHTML = `
-    <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
-    <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
-    <a id="backlog" href="backlog.html" class="nav-element nav-element-lined">Backlog</a>
-    <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
-    <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
-    <img class="nav-profile-picture" src="./img/pp.jpg">
+    <div id="nav-bar-top">
+        <a href="index.html"><img class="nav-logo" src="./img/joinlogo.png"></a>
+        <a id="board" href="board.html" class="nav-element nav-element-lined">Board</a>
+        <a id="backlog" href="backlog.html" class="nav-element nav-element-lined">Backlog</a>
+        <a id="add-task" href="addTask.html" class="nav-element nav-element-lined">Add Task</a>
+        <a id="help" href="help.html" class="nav-element nav-element-lined">Help</a>
+    </div>
+    ${addUserInNavbar()}
     `;
+}
+
+function addUserInNavbar() {
+    if (getLoggedUsername()) {
+        return `
+            <div style="width: 100%;">
+                <h6 style='color: white; text-align: center;'><b>${getLoggedUsername()}</b></h6>
+                <p style="color: white; text-align: center;">(<span class='log-out' onclick="logOut()">log out<span>)</p>
+            </div>
+        `;
+    }
+    return '';
 }
 
 function addTheBorder(page) {
@@ -150,4 +164,13 @@ async function getMemberImgPath(name) {
             return members[i]['picturePath'];
         }
     }
+}
+
+function getLoggedUsername() {
+    return sessionStorage.getItem('loginname');
+}
+
+function logOut() {
+    sessionStorage.removeItem('loginname');
+    location.reload();
 }

@@ -34,9 +34,13 @@ async function login() {
         showInfoBox('Wrong User or password', 'warning');
         return;
     }
-    showInfoBox(`Login as <b>${inputName.value}</b>`, 'success');
+    showInfoBox(`Login as <b>${inputName.value}</b> forwarding to board`, 'success');
     console.log('Anmelden erfolgreich');
     sessionStorage.setItem('loginname', user['name']);
+    
+    setTimeout(() => {
+        location.replace("board.html")
+    }, 3100);
     
     // redirection with:
     // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
@@ -50,16 +54,16 @@ async function newAccount() {
     let user = await getMember(inputName.value);
 
     if (user) { // check if exist
-        console.log('User exist, rename please');
+        console.log(`User ${user} exist, rename please`);
         showInfoBox('User exist, please rename!', 'warning');
         return;
     }
     console.log('new account with name ' + inputName.value);
-    let member = createAccountJson(inputName, inputPassword);
-    addObjectToDatabase('members', member);
-    login();
+    let member = createAccountJson(inputName.value, inputPassword.value);
+    await addObjectToDatabase('members', member);
+    await login();
 
-
+    
     // redirection with:
     // location.replace("http://www.gruppe-76.developerakademie.com/WEBSITE.html");
     // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";

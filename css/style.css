@@ -43,13 +43,27 @@ body {
 
 /* NAVIGATION_BAR */
 
+.log-out {
+    cursor: pointer;
+}
+
+.log-out:hover {
+    color: rgb(141, 174, 236);
+}
+
+#nav-bar-top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 #nav-bar {
     width: 140px;
     height: 100vh;
     margin-right: 60px;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .nav-logo {
