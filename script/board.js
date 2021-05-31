@@ -78,9 +78,11 @@ async function generateInfobox(index) {
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
-    <div class="d-flex justify-content-between mb-3" style="border-bottom: 2px solid black;">
-        <h2 style="padding: 16px;">${task['title']}</h2>
-        <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
+    <div class="d-flex justify-content-between align-items-center mb-3" style="border-bottom: 2px solid black;">
+        <h2 style="padding:28px">${task['title']}</h2>
+        <div title="close the task">
+            <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
+        </div>
     </div>
 
     <div class="d-flex justify-content-between">
@@ -106,7 +108,9 @@ async function generateInfobox(index) {
             ${getCommentsParagraphs(task['comments'] || [])}
         </div>
     </div>
-    <button onclick="deleteTask(${index})" class="btn btn-primary">Delete</button>
+    <div class="delete-button" title="Delete the Task" onclick="deleteTask(${index})">
+        <img src="img/delete-icon.png"></img>
+    </div>
     `;
 }
 

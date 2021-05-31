@@ -79,6 +79,20 @@ h3 {
     border-radius: 16px;
 }
 
+.delete-button{
+    position: absolute;
+    top: -26px;
+    right: -26px;
+    object-fit: cover;
+    cursor: pointer;
+    padding: 30px;
+}
+
+.delete-button img {
+    width: 30px;
+    height: 30px;
+}
+
 @media (max-width: 700px) {
     .col-mobile {
         display: flex;
