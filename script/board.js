@@ -125,15 +125,20 @@ function getCommentsParagraphs(comments) {
 
 
 async function addNewComments(index) {
-    let user = sessionStorage.getItem('loginname') || '&ltanonym&gt'; //b&gt;&lt;/b
-    console.log(user);
-    let newComments = document.getElementById('comments-input').value;
-    let tasks = await backend.getItem('borderTasks');
-    let allComments = tasks[index]['comments'] || [];
-    allComments.push(`<b>${user}: </b>${newComments}`);
-    tasks[index]['comments'] = allComments;
-    await backend.setItem('borderTasks', tasks);
-    generateInfobox(index);
+    if (getLoggedUsername()) {
+        let user = sessionStorage.getItem('loginname') || '&ltanonym&gt'; //b&gt;&lt;/b
+        console.log(user);
+        let newComments = document.getElementById('comments-input').value;
+        let tasks = await backend.getItem('borderTasks');
+        let allComments = tasks[index]['comments'] || [];
+        allComments.push(`<b>${user}: </b>${newComments}`);
+        tasks[index]['comments'] = allComments;
+        await backend.setItem('borderTasks', tasks);
+        generateInfobox(index);
+    } else {
+        showInfoBox('Please loggin first', 'warning');
+    }
+
 }
 
 function createDaysParagraph(days) {
@@ -154,12 +159,17 @@ async function getAssignedToImages(names) {
 }
 
 async function deleteTask(index) {
-    let tasks = await backend.getItem('borderTasks') || [];
-    let task = await tasks[index];
-    tasks.splice(index, 1);
-    await backend.setItem('borderTasks', tasks);
-    updateHTML(tasks);
-    closeInfobox();
+    if (getLoggedUsername()) {
+        let tasks = await backend.getItem('borderTasks') || [];
+        let task = await tasks[index];
+        tasks.splice(index, 1);
+        await backend.setItem('borderTasks', tasks);
+        updateHTML(tasks);
+        closeInfobox();
+    } else {
+        showInfoBox('Please loggin first', 'warning');
+    }
+
 }
 
 function closeInfobox() {
