@@ -108,8 +108,8 @@ async function generateInfobox(index) {
             ${getCommentsParagraphs(task['comments'] || [])}
         </div>
     </div>
-    <div class="delete-button" title="Delete the Task" onclick="deleteTask(${index})">
-        <img src="img/delete-icon.png"></img>
+    <div class="delete-button">
+        <img src="img/delete-icon.png" onclick="deleteTask(${index})" title="Delete the Task"></img>
     </div>
     `;
 }
