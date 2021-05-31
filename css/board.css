@@ -82,7 +82,7 @@ h3 {
 .delete-button{
     position: absolute;
     top: 5px;
-    right: 5px;
+    right: 22px;
     object-fit: cover;
     cursor: pointer;
 }
