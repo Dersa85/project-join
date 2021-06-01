@@ -37,7 +37,7 @@ h3 {
 
 .overflow{
     overflow-y: auto;
-    max-height: 50vh !important;
+    height: calc(80vh - 220px);
 }
 
 .absolute-center {
@@ -82,14 +82,14 @@ h3 {
 .delete-button{
     position: absolute;
     top: 5px;
-    right: 22px;
+    right: 17px;
     object-fit: cover;
-    cursor: pointer;
 }
 
-.delete-button img {
+.icon-button {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 @media (max-width: 700px) {

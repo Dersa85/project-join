@@ -28,6 +28,11 @@ function allowDrop(ev) {
 }
 
 function startDragging(id) {
+    if (!getLoggedUsername()) {
+        showInfoBox('Please loggin first', 'warning');
+        return
+    }
+
     currentDraggedElement = id;
 }
 
@@ -78,10 +83,10 @@ async function generateInfobox(index) {
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
-    <div class="d-flex justify-content-between align-items-center mb-3" style="border-bottom: 2px solid black;">
-        <h2 style="padding:28px">${task['title']}</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3" style="height:80px; border-bottom: 2px solid black;">
+        <h2>${task['title']}</h2>
         <div title="close the task">
-            <button onclick="closeInfobox()" class="btn btn-secondary">&#9587;</button>
+            <img src="./img/back-arrow.png" onclick="closeInfobox()" class="icon-button"></img>
         </div>
     </div>
 
@@ -109,7 +114,7 @@ async function generateInfobox(index) {
         </div>
     </div>
     <div class="delete-button">
-        <img src="img/delete-icon.png" onclick="deleteTask(${index})" title="Delete the Task"></img>
+        <img src="img/delete-icon.png" onclick="deleteTask(${index})" class="icon-button" title="Delete the Task"></img>
     </div>
     `;
 }
