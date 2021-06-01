@@ -83,7 +83,7 @@ async function generateInfobox(index) {
     let infobox = document.getElementById('infobox');
     infobox.classList.remove('d-none');
     infobox.innerHTML = `
-    <div class="d-flex justify-content-between align-items-center mb-3" style="height:80px; border-bottom: 2px solid black;">
+    <div class="d-flex justify-content-between align-items-center mb-3" style="height:85px; border-bottom: 2px solid black;">
         <h2>${task['title']}</h2>
         <div title="close the task">
             <img src="./img/back-arrow.png" onclick="closeInfobox()" class="icon-button"></img>

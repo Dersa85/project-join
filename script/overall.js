@@ -64,9 +64,9 @@ function addToInnerHtml() {
 function addUsernameInNavbar() {
     if (getLoggedUsername()) {
         return `
-            <div style="width: 100%;">
-                <h6 style='color: white; text-align: center;'><b>${getLoggedUsername()}</b></h6>
-                <p style="color: white; text-align: center;">(<span class='log-out' onclick="logOut()">log out<span>)</p>
+            <div style="width: 100%; padding-left: 16px">
+                <p style='color: white; font-size: 25px;'><b>${getLoggedUsername()}</b></p>
+                <p style="color: white; font-size: 25px;"><span class='log-out' onclick="logOut()">(log out<span>)</p>
             </div>
         `;
     }
