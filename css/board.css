@@ -3,7 +3,7 @@
 }
 
 .width-from-category {
-    width: calc((100vw - 200px)/4);
+    width: calc((100vw - 240px)/4);
     word-wrap: break-word;
     padding: 1vw;
     font-size: calc(8px + 1vw);
@@ -126,7 +126,6 @@ h3 {
         flex-direction: column;
     }
     .info-box-margin-left {
-        margin-left: 0;
         padding-bottom: 1em;
     }
 }
