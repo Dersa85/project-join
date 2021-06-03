@@ -60,6 +60,7 @@ h5 {
 
 .image-box {
     margin: 0 10px;
+    border-bottom: 2px transparent;
 }
 
 .card {

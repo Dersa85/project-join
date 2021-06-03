@@ -1,9 +1,6 @@
-let assignedTo = []; // array for assignTo() function
-let currentIndexNumber = 0;
-
 function createTask() {
 
-    if (checkWhetherFieldIsFilled('description') && assignedTo.length != 0) {
+    if (isfilled('description')) {
 
         let title = document.getElementById('title');
         let category = document.getElementById('category');
@@ -28,18 +25,18 @@ function createTask() {
         resetValues();
 
         removeAllUnderlinedProfiles();
-        goBack();
-        alert('Task wurde erstellt!');
-    }else{
-        alert('Please enter Value!')
+        goBack(); // da unser Section-Slide-Container nur 2 Sections besitzt: wieder zur ersten gewandert. Sobald xSections > 2 Problem!
+        showInfoBox('Task wurde erstellt!', 'success');
+    } else {
+        showInfoBox('Please enter value', 'warning');
     }
 }
 
 function resetValues() {
-    assignedTo = [];
     title.value = '';
-    description.value = '';
     dueDate.value = '';
+    description.value = '';
+    assignedTo = [];
 }
 
 async function resetValuesInBackedArray() {
@@ -49,6 +46,11 @@ async function resetValuesInBackedArray() {
         members[i]['indexOfArray'] = '';
     }
 }
+
+// ------------------------ AsignTo ----------------------------
+
+let assignedTo = [];
+let currentIndexNumber = 0;
 
 function showProfilePicInBlockElement() {
     let container = document.getElementById('image-container');
@@ -76,15 +78,15 @@ async function assignTo(index) {
         console.log(name + ' wurde ausgewählt');
         selectProfile(i, members, name);
     } else {
-        console.log(name + ' is already choosen');
+        console.log(name + ' wurde abgewählt');
         removeSelectedProfile(i, members, name);
     }
 }
 
 function selectProfile(i, array, name) {
     underlineChoosenProfile(i);
-
     array[i]['alreadyAssigned'] = true;
+
     assignedTo.push(name);
     array[i]['indexOfArray'] = currentIndexNumber;
 
@@ -97,7 +99,6 @@ async function removeSelectedProfile(i, array, name) {
 
     let indexOfArray = array[i]['indexOfArray'];
     assignedTo.splice(indexOfArray, 1);
-
     correctIndexNumberInMemberObject(i);
 
     currentIndexNumber--;
@@ -132,54 +133,37 @@ function removeUnderlineAtChoosenProfile(i) {
 }
 
 function removeAllUnderlinedProfiles() {
-    for (let i = 0; i <= 2; i++) { // fixed for loop: 3 times für den Anfang erst! Adam, Alex, Mikail => 3
+    for (let i = 0; i <= 2; i++) { // fixed for-loop: 3 times für den Anfang erst! Adam, Alex, Mikail => 3
         removeUnderlineAtChoosenProfile(i);
     }
 }
 
-let x = 0; // translateX(x) of the block-section
-let blocks = document.getElementsByClassName('block');
-let createTaskBtn = document.getElementById('create-task-btn');
+// ------------------------ Section-Slider ----------------------------
+
+let x = 0; // translateX(x) of the block-section -> for the movement
+let blocks = document.getElementsByClassName('block'); // the sections
 
 function goFurther() {
-    if (checkWhetherFieldIsFilled('title') && checkWhetherFieldIsFilled('dueDate')) {
-        if (x > - 100) {
+    if (getLoggedUsername()) {
+        if (isfilled('title') && isfilled('dueDate')) {
+
+            // movement
             x -= 100;
-            for (let i = 0; i < blocks.length; i++) {
-                translateX(i, x);
-            }
-            let createTaskBtn = document.getElementById('create-task-btn');
-            createTaskBtn.innerHTML = 'create Task';
-            createTaskBtn.setAttribute('onclick', 'createTask()');
+            moveSections();
+
+            // setting & changing card-footer buttons
+            setCreateTaskBtn('create Task', 'createTask()');
+            setGoBackBtn(generateHtmlGoBackBtn(), '|');
+
         } else {
-            console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
+            showInfoBox('Please enter value', 'warning');
         }
     } else {
-        alert('Please enter Value');
+        showInfoBox('Please login first', 'warning');
     }
 }
 
-function goBack() {
-    if (x < 0) {
-        x += 100;
-        for (let i = 0; i < blocks.length; i++) {
-            translateX(i, x);
-        }
-        let goFurtherBtn = document.getElementById('create-task-btn');
-        goFurtherBtn.innerHTML = 'go';
-        goFurtherBtn.setAttribute('onclick', 'goFurther()');
-
-    } else {
-        console.log('X beträgt: ' + x + ' Bei noch einer Ausführung überhaupt keine Section mehr zu sehen');
-    }
-
-}
-
-function translateX(id, x) {
-    document.getElementById('section-' + id).style.transform = `translateX(${x}%)`;
-}
-
-function checkWhetherFieldIsFilled(id) {
+function isfilled(id) {
     let value = document.getElementById(id).value;
     let lengthOfValue = value.length;
     if (lengthOfValue != 0) {
@@ -187,4 +171,40 @@ function checkWhetherFieldIsFilled(id) {
     } else {
         return false;
     }
+}
+
+function goBack() {
+
+    // movement
+    x += 100;
+    moveSections();
+
+    // setting & changing card-footer buttons
+    setCreateTaskBtn('go', 'goFurther()');
+    setGoBackBtn('', '');
+}
+
+function moveSections() {
+    for (let i = 0; i < blocks.length; i++) {
+        translateX(i, x);
+    }
+}
+
+function translateX(id, x) {
+    document.getElementById('section-' + id).style.transform = `translateX(${x}%)`;
+}
+
+function setCreateTaskBtn(innerValue, onclickFunctionName) {
+    let createTaskBtn = document.getElementById('create-task-btn');
+    createTaskBtn.innerHTML = innerValue;
+    createTaskBtn.setAttribute('onclick', onclickFunctionName);
+}
+
+function setGoBackBtn(innerValue1, innerValue2) {
+    document.getElementById('i-want-go-back-please').innerHTML = innerValue1;
+    document.getElementById('char').innerHTML = innerValue2;
+}
+
+function generateHtmlGoBackBtn() {
+    return '<button onclick="goBack()" class="foooter-btn">back</button>';
 }

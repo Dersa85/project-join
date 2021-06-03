@@ -35,14 +35,20 @@
             <div class="main bg-main border-small">
 
                 <div class="card">
+                    
+                    <!-- Body -->
                     <div class="card-body">
+                        <!-- Section Slide Container-->
                         <div class="section-slide-container">
+                            <!-- Section 0 -->
                             <div id="section-0" class="block" style="flex-direction: column;">
+                                <!-- Row-->
                                 <div class="block-row" style="display: flex; justify-content: space-evenly;">
                                     <!-- title -->
                                     <div class="block-element">
                                         <h5>Title</h5>
-                                        <input id="title" maxlength="50" type="text" class="form-control" style="width:400px;">
+                                        <input id="title" maxlength="50" type="text" class="form-control"
+                                            style="width:400px;">
                                     </div>
                                     <!-- category -->
                                     <div class="block-element">
@@ -53,12 +59,15 @@
                                             <option>Engineering</option>
                                             <option>Design</option>
                                             <option>Product</option>
+                                            <option>Communication</option>
                                             <option>Testing</option>
                                             <option>Sale</option>
+                                            <option>Presentation</option>
                                             <option>Other</option>
                                         </select>
                                     </div>
                                 </div>
+                                <!-- Row-->
                                 <div class="block-row" style="display: flex; justify-content: space-evenly;">
                                     <!-- due date -->
                                     <div class="block-element">
@@ -76,6 +85,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Section 1 -->
                             <div id="section-1" class="block d-flex" style="align-items: center;">
                                 <!-- descrition -->
                                 <div class="block-element">
@@ -91,14 +101,11 @@
                         </div>
                     </div>
 
+                    <!-- Footer -->
                     <div class="card-foooter">
-
-                        <div class="buttons">
-                            <button onclick="goBack()" class="foooter-btn">back</button>
-                            <span>|</span>
-                            <button id="create-task-btn" onclick="goFurther()" class="foooter-btn">go</button>
-                        </div>
-
+                        <div id="i-want-go-back-please"></div>
+                        <span id="char"></span>
+                        <button id="create-task-btn" onclick="goFurther()" class="foooter-btn">go</button>
                     </div>
                 </div>
 
