@@ -106,7 +106,7 @@ async function generateInfobox(index) {
         <h5 class="color-titel">Comments:</h5>
         <div class="d-flex info-box-margin-left align-items-center mb-3 detail-comments-field">
             <h6 style="margin-bottom: 0;"><b>Write comment:</b></h6>
-            <input id="comments-input" style="margin-left: 16px; margin-right: 16px;" type="text"><button onclick="addNewComments(${index})" class="btn btn-primary">Add</button>
+            <input id="comments-input" style="margin-left: 16px; margin-right: 16px; border-radius: 8px;" type="text"><button onclick="addNewComments(${index})" class="btn btn-primary">Add</button>
         </div>
 
         <div class="info-box-margin-left detail-description-field">

@@ -101,6 +101,9 @@
     margin-left: auto;
 }
 
+.card-border-color {
+    border-color: black;
+}
 
 .urgency-1 {
     background-size: 200%;
@@ -172,8 +175,6 @@
         flex-direction: column;
     }
 
-    
-
     .item-detail-content {
         border-left: 0;
         border-top: 1px solid gray;
@@ -182,7 +183,7 @@
         padding-top: 8px;
     }
 
-    #title {
+    #titel {
         text-align: center;
     }
 

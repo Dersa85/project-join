@@ -11,7 +11,7 @@ async function refreshBacklog() {
             <h2 class="accordion-header" id="heading-${i}">
             <button class="accordion-button collapsed item-button-border-${backlogTasks[i]['category']} urgency-${backlogTasks[i]['urgency']}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${i}" aria-expanded="true" aria-controls="collapse-${i}">
                 ${await getAssignedImgs(backlogTasks[i]['assignedTo'])}
-                ${backlogTasks[i]['title']}
+                <b>${backlogTasks[i]['title']}</b>
             </button>
             </h2>
             <div id="collapse-${i}" class="accordion-collapse collapse" aria-labelledby="heading-${i}" data-bs-parent="#accordion-container">
@@ -69,7 +69,7 @@ async function onConfirmButtonPressed(index) {
     showConfirmTask();
     let task = await backend.getItem('backlogTasks')[index];
     let createAt = millisecoundsToDateString(task['createdAt']);
-    document.getElementById('exampleModalLabel').innerText = task['title'];
+    document.getElementById('exampleModalLabel').innerHTML = `<h2><b>${task['title']}</b></h2>`;
     document.getElementById('detail-content').innerHTML = `
         <div>
             <p><b>Assigned to:</b> ${await getAssignedImgs(task['assignedTo'])}</p>

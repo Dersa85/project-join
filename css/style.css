@@ -3,6 +3,13 @@ body {
     margin: 0;
 }
 
+
+#titel {
+    font-size: min(calc(16px + 4vw), 48px);
+    font-weight: bold;
+    padding: 1em;
+}
+
 /* BORDER */
 
 .border-small {
@@ -25,6 +32,10 @@ body {
 
 .bg-main {
     background-color: rgb(176, 175, 238);
+}
+
+.card-bg {
+    background-color: rgb(230, 230, 230);
 }
 
 .color-navbar {
@@ -166,6 +177,13 @@ body {
     padding: 12px;
     border-radius: 8px;
     animation: warning-fade 3s ease-in-out forwards;
+}
+
+.absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes warning-fade {

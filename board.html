@@ -25,11 +25,11 @@
 
         <div id="responsive-navbar" class="d-none"></div>
 
-        <div id="infobox" class="absolute-center infobox border-small d-none"></div>
+        <div id="infobox" class="absolute-center infobox border-small d-none card-bg"></div>
 
         <div class="vh-100 reset-margin-mobile"
-            style="align-items: center; display: flex; flex-direction: column;">
-            <h2 class="text-align">Board</h2>
+            style="display: flex; flex-direction: column;">
+            <h2 id="titel">Board</h2>
             <div class="d-flex h-75 col-mobile">
 
                 <div class="row-mobile flex-row">
@@ -38,7 +38,7 @@
                         <h3 style="text-align: center;">TO DO</h3>
                         <div id="todo" class="bg-main heigt-min-max" ondrop="moveTo('todo')"
                             ondragover="allowDrop(event); highlight('todo')" ondragleave="removeHighlight('todo')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; border-radius: 8px;">
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                         <div id="progress" class="bg-main heigt-min-max" ondrop="moveTo('progress')"
                             ondragover="allowDrop(event); highlight('progress')"
                             ondragleave="removeHighlight('progress')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; border-radius: 8px;">
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <h3 style="text-align: center;">TESTING</h3>
                         <div id="testing" class="bg-main heigt-min-max" ondrop="moveTo('testing')"
                             ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; border-radius: 8px;">
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                         <h3 style="text-align: center;">DONE</h3>
                         <div id="done" class="bg-main heigt-min-max" ondrop="moveTo('done')"
                             ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')"
-                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto;">
+                            style="flex: 1;display: flex;flex-direction: column;align-items: center;overflow-y: auto; border-radius: 8px;">
                         </div>
                     </div>
                 </div>

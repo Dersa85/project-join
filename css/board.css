@@ -9,12 +9,6 @@
     font-size: calc(8px + 1vw);
 }
 
-h2{
-    font-size: min(calc(16px + 0.8vw), 26px);
-    font-weight: bold;
-    padding: 1em;
-}
-
 h3 {
     font-size: calc(10px + 1vw);
     font-weight: bold;
@@ -29,7 +23,7 @@ h3 {
     border: 2px solid gray;
     border-radius: 8px;
     padding: 8px;
-    background-color: lightgray;
+    background-color: rgb(225, 225, 252);
     width: 90%;
     margin: 8px;
     cursor: pointer;
@@ -51,7 +45,7 @@ h3 {
     width: 90vw;
     height: 80vh;
     max-width: 500px;
-    background-color: rgb(192, 192, 192);
+    background-color: rgb(230, 230, 230);
     border: 1px solid grey;
     padding: 1em;
     overflow: hidden;
@@ -110,9 +104,6 @@ h3 {
         padding: 0px !important;
         font-size: calc(6px + 1.5vw) !important;
     }
-    h2{
-        font-style: calc(14px + 1.5vw) !important;
-    }
     h3 {
         font-size: calc(12px + 1.5vw) !important;
         font-weight: bold !important;
@@ -127,5 +118,8 @@ h3 {
     }
     .info-box-margin-left {
         padding-bottom: 1em;
+    }
+    #titel {
+        text-align: center;
     }
 }

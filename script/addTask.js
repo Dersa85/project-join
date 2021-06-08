@@ -206,5 +206,5 @@ function setGoBackBtn(innerValue1, innerValue2) {
 }
 
 function generateHtmlGoBackBtn() {
-    return '<button onclick="goBack()" class="foooter-btn">back</button>';
+    return '<button onclick="goBack()" class="foooter-btn btn btn-primary">back</button>';
 }
