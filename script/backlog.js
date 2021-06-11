@@ -96,7 +96,7 @@ async function deleteTask(index) {
         closeConfirmTask();
         refreshBacklog();
     } else {
-        showInfoBox('Please loggin first', 'warning')
+        showInfoBox('Please login first', 'warning')
     }
 }
 
@@ -126,7 +126,7 @@ async function acceptTask(id) {
         closeConfirmTask();
         refreshBacklog();
     } else {
-        showInfoBox('Please loggin first', 'warning')
+        showInfoBox('Please login first', 'warning')
     }
     
 }

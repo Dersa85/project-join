@@ -29,7 +29,7 @@ function allowDrop(ev) {
 
 function startDragging(id) {
     if (!getLoggedUsername()) {
-        showInfoBox('Please loggin first', 'warning');
+        showInfoBox('Please login first', 'warning');
         return
     }
 
@@ -141,7 +141,7 @@ async function addNewComments(index) {
         await backend.setItem('borderTasks', tasks);
         generateInfobox(index);
     } else {
-        showInfoBox('Please loggin first', 'warning');
+        showInfoBox('Please login first', 'warning');
     }
 
 }
@@ -172,7 +172,7 @@ async function deleteTask(index) {
         updateHTML(tasks);
         closeInfobox();
     } else {
-        showInfoBox('Please loggin first', 'warning');
+        showInfoBox('Please login first', 'warning');
     }
 
 }
