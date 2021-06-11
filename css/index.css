@@ -11,3 +11,11 @@
 .selected {
     border-bottom: 5px solid white;
 }
+
+.guest-button {
+    cursor: pointer;
+}
+
+.guest-button:hover {
+    color: white;
+}

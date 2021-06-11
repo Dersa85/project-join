@@ -47,6 +47,15 @@ async function login() {
     // location.href = "http://www.gruppe-76.developerakademie.com/WEBSITE.html";
 }
 
+function guestLogin() {
+    let loginName = '&ltGuest&gt'
+    showInfoBox(`Login as <b>${loginName}</b> forwarding to board`, 'success');
+    sessionStorage.setItem('loginname', loginName);
+    setTimeout(() => {
+        location.replace("board.html")
+    }, 3100);
+}
+
 async function newAccount() {
     let inputName = document.getElementById('input-name');
     let inputPassword = document.getElementById('input-password');
