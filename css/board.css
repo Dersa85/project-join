@@ -29,7 +29,7 @@ h3 {
     cursor: pointer;
 }
 
-.overflow{
+.overflow {
     overflow-y: auto;
     height: calc(80vh - 220px);
 }
@@ -73,7 +73,7 @@ h3 {
     border-radius: 16px;
 }
 
-.delete-button{
+.delete-button {
     position: absolute;
     top: 5px;
     right: 17px;
@@ -84,6 +84,11 @@ h3 {
     width: 30px;
     height: 30px;
     cursor: pointer;
+}
+
+#titel {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 @media (max-width: 700px) {
