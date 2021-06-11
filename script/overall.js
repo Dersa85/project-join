@@ -2,8 +2,10 @@ let members;
 
 async function init(page = '') {
     await startBackend();
-    generateNavbar(page);
-    generateResponsiveNavbar();
+    if (getLoggedUsername()) {
+        generateNavbar(page);
+        generateResponsiveNavbar();
+    }
 
     members = await getBackendArray('members');
 
@@ -177,5 +179,5 @@ function getLoggedUsername() {
 
 function logOut() {
     sessionStorage.removeItem('loginname');
-    location.reload();
+    location.replace("index.html");
 }
