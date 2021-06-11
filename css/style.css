@@ -179,6 +179,7 @@ body {
     left: 50%;
     padding: 12px;
     border-radius: 8px;
+    transform: translate(-50%, 0);
     animation: warning-fade 3s ease-in-out forwards;
 }
 
