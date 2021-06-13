@@ -8,18 +8,7 @@ function createTask() {
         let dueDate = document.getElementById('dueDate');
         let urgency = document.getElementById('urgency');
 
-        resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
-
-        let task = {
-            'title': title.value,
-            'category': category.value,
-            'description': description.value,
-            'createdAt': new Date().getTime(),
-            'dueDate': dueDate.value,
-            'urgency': urgency.value,
-            'board-category': '',
-            'assignedTo': assignedTo
-        }
+        let task = getNewTask(title.value, category.value, description.value, dueDate.value, urgency.value, assignedTo);
 
         addObjectToDatabase('backlogTasks', task);
         resetValues();
@@ -32,11 +21,25 @@ function createTask() {
     }
 }
 
+function getNewTask(title, category, description, dueDate, urgency, assignedTo) {
+    return {
+        'title': title,
+        'category': category,
+        'description': description,
+        'createdAt': new Date().getTime(),
+        'dueDate': dueDate,
+        'urgency': urgency,
+        'board-category': '',
+        'assignedTo': assignedTo
+    }
+}
+
 function resetValues() {
     title.value = '';
     dueDate.value = '';
     description.value = '';
     assignedTo = [];
+    resetValuesInBackedArray(); // hängt mit der toggle logik zusammen -> assignTo()
 }
 
 async function resetValuesInBackedArray() {
@@ -207,4 +210,24 @@ function setGoBackBtn(innerValue1, innerValue2) {
 
 function generateHtmlGoBackBtn() {
     return '<button onclick="goBack()" class="foooter-btn btn btn-primary">back</button>';
+}
+
+// ------------------------ Due Date ----------------------------
+
+function setDueDateMinimumDate() {
+    document.getElementById('dueDate').setAttribute('min', getMinimumDate());
+}
+
+function getMinimumDate() {
+    let date = new Date();
+    let day = date.getDate();;
+    if (day < 10) {
+        day = `0${day}`;
+    }
+    let month = date.getMonth() + 1; // weil Intervall von 0 bis 11 geht; Informatik bei 0 anfängt.
+    if (month < 10) {
+        month = `0${month}`;
+    }
+    let year = date.getFullYear();
+    return `${year}-${month}-${day}`; // min="2021-06-11"
 }

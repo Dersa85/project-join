@@ -14,6 +14,7 @@ async function init(page = '') {
     }
     else if (page == 'add-task') {
         showProfilePicInBlockElement();
+        setDueDateMinimumDate();
     }
     else if (page == 'board') {
         updateHTML();
